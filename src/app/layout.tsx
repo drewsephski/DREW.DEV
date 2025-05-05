@@ -4,6 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 import SpotlightCursor from "@/components/SpotlightCursor";
 import Providers from "./providers";
+import { Layout } from "@/components/layout";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -83,13 +84,10 @@ export default function RootLayout({
           document.documentElement.classList.add('dark');
         `}} />
 
-        {/* Global Navigation Component */}
-        <div id="global-navigation">
-          {/* This will be dynamically loaded on the client side */}
-        </div>
-
         <Providers>
-          {children}
+          <Layout>
+            {children}
+          </Layout>
         </Providers>
       </body>
     </html>

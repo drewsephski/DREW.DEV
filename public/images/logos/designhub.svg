@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="40" viewBox="0 0 120 40">
+  <circle cx="30" cy="20" r="10" fill="#FF6B6B"/>
+  <circle cx="60" cy="20" r="10" fill="#4ECDC4"/>
+  <circle cx="90" cy="20" r="10" fill="#FFE66D"/>
+  <text x="60" y="35" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#333333">DESIGNHUB</text>
+</svg>

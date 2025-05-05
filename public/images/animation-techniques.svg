@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Animation Techniques</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#06B6D4" offset="0%"></stop>
+            <stop stop-color="#0EA5E9" offset="100%"></stop>
+        </linearGradient>
+        <filter id="filter-2" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="20"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <!-- Background -->
+            <rect fill="#111827" x="0" y="0" width="800" height="800" rx="40"></rect>
+            
+            <!-- Animated circles -->
+            <circle cx="400" cy="400" r="150" fill="url(#linearGradient-1)" opacity="0.2">
+                <animate attributeName="r" values="150;200;150" dur="4s" repeatCount="indefinite" />
+            </circle>
+            
+            <circle cx="400" cy="400" r="100" fill="url(#linearGradient-1)" opacity="0.4">
+                <animate attributeName="r" values="100;150;100" dur="3s" repeatCount="indefinite" />
+            </circle>
+            
+            <circle cx="400" cy="400" r="50" fill="url(#linearGradient-1)" opacity="0.6">
+                <animate attributeName="r" values="50;100;50" dur="2s" repeatCount="indefinite" />
+            </circle>
+            
+            <!-- Play button -->
+            <g transform="translate(350, 350)">
+                <circle cx="50" cy="50" r="50" fill="white" opacity="0.9"></circle>
+                <polygon points="40,30 70,50 40,70" fill="#06B6D4" transform="translate(5, 0)"></polygon>
+            </g>
+            
+            <!-- Decorative elements -->
+            <g opacity="0.6">
+                <circle cx="200" cy="200" r="20" fill="#06B6D4" filter="url(#filter-2)"></circle>
+                <circle cx="600" cy="200" r="15" fill="#0EA5E9" filter="url(#filter-2)"></circle>
+                <circle cx="200" cy="600" r="15" fill="#0EA5E9" filter="url(#filter-2)"></circle>
+                <circle cx="600" cy="600" r="20" fill="#06B6D4" filter="url(#filter-2)"></circle>
+            </g>
+            
+            <!-- Motion lines -->
+            <g stroke="#0EA5E9" stroke-width="3" opacity="0.7">
+                <path d="M250,400 C300,350 350,350 400,400 C450,450 500,450 550,400">
+                    <animate attributeName="d" 
+                        values="M250,400 C300,350 350,350 400,400 C450,450 500,450 550,400;
+                                M250,400 C300,450 350,450 400,400 C450,350 500,350 550,400;
+                                M250,400 C300,350 350,350 400,400 C450,450 500,450 550,400" 
+                        dur="4s" 
+                        repeatCount="indefinite" />
+                </path>
+            </g>
+        </g>
+    </g>
+</svg>

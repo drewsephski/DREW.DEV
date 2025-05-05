@@ -47,7 +47,7 @@ export default function FeaturedArticles() {
         </p>
       </div>
 
-      <BentoGrid className="max-w-6xl mx-auto">
+      <BentoGrid className="max-w-6xl mx-auto grid-rows-[auto_auto_auto]">
         {featuredArticles.map((article, i) => (
           <BentoGridItem
             key={i}
@@ -113,7 +113,7 @@ export default function FeaturedArticles() {
                 className="opacity-90 group-hover:opacity-100"
               />
             }
-            className={article.featured ? "md:col-span-2" : ""}
+            className={i === 0 || i === 3 ? "md:col-span-2" : ""}
           />
         ))}
       </BentoGrid>
@@ -141,7 +141,7 @@ export default function FeaturedArticles() {
 
 const featuredArticles: FeaturedArticle[] = [
   {
-    title: "Building a Modern Design System Website",
+    title: "✨ Crafting Stunning Design Systems That Scale",
     description: "A comprehensive guide to the development process of each major section of our design system website.",
     href: "/blog/building-design-system-website",
     image: "/images/design-system-website.svg",
@@ -152,18 +152,18 @@ const featuredArticles: FeaturedArticle[] = [
     bgColor: "from-blue-500/20 to-indigo-500/20",
   },
   {
-    title: "Building Interactive UI Components",
-    description: "Learn how we built our library of interactive UI components using React and Motion.",
-    href: "/blog/building-interactive-ui-components",
-    image: "/images/interactive-ui-components.svg",
-    iconName: "IconComponents",
-    iconColor: "#8b5cf6",
-    iconAnimation: "pulse",
-    featured: true,
-    bgColor: "from-indigo-500/20 to-purple-500/20",
+    title: "🔮 The Future of UI: Animation Techniques",
+    description: "Discover cutting-edge animation techniques to bring your interfaces to life with fluid motion.",
+    href: "/blog/animation-techniques",
+    image: "/images/animation-techniques.svg",
+    iconName: "IconPlayerPlay",
+    iconColor: "#06b6d4",
+    iconAnimation: "float",
+    featured: false,
+    bgColor: "from-cyan-500/20 to-sky-500/20",
   },
   {
-    title: "Mastering Design Tokens",
+    title: "🎨 The Art & Science of Design Tokens",
     description: "Explore how design tokens form the foundation of our consistent UI system.",
     href: "/blog/mastering-design-tokens",
     image: "/images/design-tokens-article.svg",
@@ -174,7 +174,18 @@ const featuredArticles: FeaturedArticle[] = [
     bgColor: "from-pink-500/20 to-rose-500/20",
   },
   {
-    title: "Creating a Modern Pricing Page",
+    title: "🚀 Elevate Your UI: Interactive Components Masterclass",
+    description: "Learn how we built our library of interactive UI components using React and Motion.",
+    href: "/blog/building-interactive-ui-components",
+    image: "/images/interactive-ui-components.svg",
+    iconName: "IconComponents",
+    iconColor: "#8b5cf6",
+    iconAnimation: "pulse",
+    featured: true,
+    bgColor: "from-indigo-500/20 to-purple-500/20",
+  },
+  {
+    title: "💎 Pricing Pages That Convert: A Visual Guide",
     description: "A detailed look at how we built our pricing page with micro-interactions and animations.",
     href: "/blog/creating-modern-pricing-page",
     image: "/images/pricing-page.svg",
@@ -185,7 +196,7 @@ const featuredArticles: FeaturedArticle[] = [
     bgColor: "from-emerald-500/20 to-teal-500/20",
   },
   {
-    title: "Optimizing Performance in React Applications",
+    title: "⚡ Supercharge Your React App Performance",
     description: "Learn techniques for optimizing the performance of your React applications with our component library.",
     href: "/blog/optimizing-performance",
     image: "/images/design-system-website.svg",
@@ -196,7 +207,7 @@ const featuredArticles: FeaturedArticle[] = [
     bgColor: "from-amber-500/20 to-yellow-500/20",
   },
   {
-    title: "Accessibility Best Practices",
+    title: "♿ Inclusive Design: Beyond the Basics",
     description: "Ensure your applications are accessible to all users with our comprehensive accessibility guide.",
     href: "/blog/accessibility-best-practices",
     image: "/images/design-system-website.svg",

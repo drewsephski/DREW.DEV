@@ -72,18 +72,18 @@ export default function Home() {
 
         <main className="flex flex-col gap-[32px] items-center w-full max-w-7xl mx-auto">
           <motion.div
-            className="text-2xl md:text-3xl font-bold text-center mb-4 text-white"
+            className="text-3xl md:text-4xl font-bold text-center mb-8 text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <EnhancedTextEffect
               words="Premium UI Components"
-              duration={0.3}
+              duration={0.8}
               variant="combined"
-              textSize="2xl"
+              textSize="3xl"
               fontWeight="bold"
-              threshold={0.1}
+              threshold={0.3}
               rootMargin="50px"
             />
           </motion.div>
@@ -109,8 +109,8 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             whileHover={{
-              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-              transform: "translateY(-5px)",
+              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.4)",
+              transform: "translateY(-3px)",
               transition: { duration: 0.3 }
             }}
           >

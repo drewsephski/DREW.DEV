@@ -75,7 +75,11 @@ export const BentoGridItem = ({
           {icon}
         </motion.div>
         <motion.div
-          className="mt-2 mb-1 sm:mb-2 font-sans text-sm sm:text-base font-bold text-neutral-700 dark:text-neutral-100 transition-all duration-300 group-hover/bento:text-neutral-900 dark:group-hover/bento:text-white line-clamp-2"
+          className="mt-2 mb-1 sm:mb-2 font-sans text-sm sm:text-base font-bold text-neutral-700 dark:text-neutral-100 transition-all duration-300 group-hover/bento:text-neutral-900 dark:group-hover/bento:text-white line-clamp-2 bg-clip-text bg-gradient-to-r from-primary via-foreground to-accent dark:from-primary dark:via-foreground dark:to-accent tracking-tight leading-tight"
+          whileHover={{
+            scale: 1.02,
+            transition: { duration: 0.2 }
+          }}
         >
           {title}
         </motion.div>
