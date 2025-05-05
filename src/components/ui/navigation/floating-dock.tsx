@@ -24,14 +24,29 @@ export function FloatingDock({ items, className = '' }: FloatingDockProps) {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Hide when scrolling down, show when scrolling up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+
+      // Show when:
+      // 1. User has scrolled past the header (> 100px)
+      // 2. User is scrolling up
+      // 3. User has reached the bottom of the page
+      const isScrollingUp = currentScrollY < lastScrollY;
+      const isAtTop = currentScrollY < 100;
+      const isAtBottom = window.innerHeight + currentScrollY >= document.body.offsetHeight - 100;
+
+      if (isAtTop) {
+        // Hide when at the top of the page (navbar is visible)
         setIsVisible(false);
-      } else {
+      } else if (isAtBottom) {
+        // Always show when at the bottom of the page
         setIsVisible(true);
+      } else if (isScrollingUp) {
+        // Show when scrolling up
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Hide when scrolling down (and not at the bottom)
+        setIsVisible(false);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
@@ -53,7 +68,7 @@ export function FloatingDock({ items, className = '' }: FloatingDockProps) {
             <div className="flex space-x-1">
               {items.map((item, index) => {
                 const isActive = pathname === item.href;
-                
+
                 return (
                   <Link
                     key={index}
@@ -61,16 +76,16 @@ export function FloatingDock({ items, className = '' }: FloatingDockProps) {
                     className="relative"
                   >
                     <motion.div
-                      className={`relative flex items-center justify-center p-3 rounded-full transition-colors ${
-                        isActive 
-                          ? 'text-white bg-primary/20' 
+                      className={`relative flex items-center justify-center p-3 rounded-full transition-colors group ${
+                        isActive
+                          ? 'text-white bg-primary/20'
                           : 'text-white/70 hover:text-white hover:bg-white/10'
                       }`}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       {item.icon}
-                      
+
                       {isActive && (
                         <motion.div
                           layoutId="activeIndicator"
@@ -79,7 +94,7 @@ export function FloatingDock({ items, className = '' }: FloatingDockProps) {
                           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                         />
                       )}
-                      
+
                       <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                         {item.name}
                       </span>

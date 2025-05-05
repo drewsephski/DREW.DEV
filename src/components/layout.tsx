@@ -3,6 +3,7 @@
 import React from "react";
 import { MainNavbar } from "@/components/ui/navigation/main-navbar";
 import { FloatingDock } from "@/components/ui/navigation/floating-dock";
+import { Footer } from "@/components/ui/navigation/footer";
 import { usePathname } from "next/navigation";
 import { IconHome, IconComponents, IconBook, IconCreditCard, IconLayoutDashboard } from "@tabler/icons-react";
 
@@ -45,7 +46,8 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <MainNavbar />
-      <main>{children}</main>
+      <main className="min-h-screen">{children}</main>
+      <Footer />
       <FloatingDock items={navItems} />
     </>
   );

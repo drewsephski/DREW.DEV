@@ -45,8 +45,20 @@ export const AceternityDropdown: React.FC<AceternityDropdownProps> = ({
   icon,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState<number>(-1);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const optionsRef = useRef<(HTMLDivElement | null)[]>([]);
   const selectedOption = options.find((option) => option.value === value);
+  const selectedIndex = options.findIndex((option) => option.value === value);
+
+  // Reset highlighted index when dropdown opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      setHighlightedIndex(selectedIndex);
+    } else {
+      setHighlightedIndex(-1);
+    }
+  }, [isOpen, selectedIndex]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -61,6 +73,61 @@ export const AceternityDropdown: React.FC<AceternityDropdownProps> = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // Handle keyboard navigation
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (disabled) return;
+
+    switch (event.key) {
+      case "ArrowDown":
+        event.preventDefault();
+        if (!isOpen) {
+          setIsOpen(true);
+        } else {
+          setHighlightedIndex((prevIndex) => {
+            const newIndex = prevIndex < options.length - 1 ? prevIndex + 1 : 0;
+            // Scroll the highlighted option into view
+            optionsRef.current[newIndex]?.scrollIntoView({ block: "nearest" });
+            return newIndex;
+          });
+        }
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        if (!isOpen) {
+          setIsOpen(true);
+        } else {
+          setHighlightedIndex((prevIndex) => {
+            const newIndex = prevIndex > 0 ? prevIndex - 1 : options.length - 1;
+            // Scroll the highlighted option into view
+            optionsRef.current[newIndex]?.scrollIntoView({ block: "nearest" });
+            return newIndex;
+          });
+        }
+        break;
+      case "Enter":
+      case " ": // Space
+        event.preventDefault();
+        if (!isOpen) {
+          setIsOpen(true);
+        } else if (highlightedIndex >= 0) {
+          onChange(options[highlightedIndex].value);
+          setIsOpen(false);
+        }
+        break;
+      case "Escape":
+        event.preventDefault();
+        setIsOpen(false);
+        break;
+      case "Tab":
+        if (isOpen) {
+          setIsOpen(false);
+        }
+        break;
+      default:
+        break;
+    }
+  };
 
   // Variant styles
   const variantStyles = {
@@ -87,10 +154,11 @@ export const AceternityDropdown: React.FC<AceternityDropdownProps> = ({
           {label}
         </label>
       )}
-      
+
       <button
         type="button"
         onClick={() => !disabled && setIsOpen(!isOpen)}
+        onKeyDown={handleKeyDown}
         className={cn(
           "flex items-center justify-between rounded-md transition-all duration-200",
           variantStyles[variant],
@@ -102,7 +170,8 @@ export const AceternityDropdown: React.FC<AceternityDropdownProps> = ({
         )}
         disabled={disabled}
         aria-haspopup="listbox"
-        aria-expanded={isOpen}
+        aria-expanded={isOpen ? "true" : "false"}
+        tabIndex={disabled ? -1 : 0}
       >
         <div className="flex items-center gap-2 truncate">
           {icon && <span className="text-neutral-400">{icon}</span>}
@@ -143,21 +212,26 @@ export const AceternityDropdown: React.FC<AceternityDropdownProps> = ({
             )}
             role="listbox"
           >
-            {options.map((option) => (
+            {options.map((option, index) => (
               <motion.div
                 key={option.value}
+                ref={(el) => (optionsRef.current[index] = el)}
                 whileHover={{ backgroundColor: "rgba(59, 130, 246, 0.1)" }}
                 className={cn(
                   "cursor-pointer select-none px-3 py-2 text-sm flex items-center gap-2",
                   option.value === value && "bg-blue-600/20 text-blue-500",
+                  highlightedIndex === index && "bg-blue-600/10 text-blue-400",
                   optionClassName
                 )}
                 onClick={() => {
                   onChange(option.value);
                   setIsOpen(false);
                 }}
+                onMouseEnter={() => setHighlightedIndex(index)}
+                onMouseLeave={() => setHighlightedIndex(selectedIndex)}
                 role="option"
                 aria-selected={option.value === value}
+                tabIndex={-1}
               >
                 {option.icon && <span>{option.icon}</span>}
                 <span className="truncate">{option.label}</span>

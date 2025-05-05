@@ -6,3 +6,4 @@ export * from './neon-card';
 export * from './3d-card';
 export * from './glass-card';
 export * from './enhanced-card';
+export * from './premium-card';

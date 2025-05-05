@@ -7,7 +7,16 @@ import Link from "next/link";
 import { EnhancedTextEffect } from "@/components/ui/effects/enhanced-text-effect";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import Image from "next/image";
+import { FloatingDock, blogDockItems } from "@/components/ui/navigation/floating-dock";
 
+  /**
+   * BlogIndexPage component.
+   *
+   * This component renders the main blog page with a hero section, a grid of blog
+   * posts, and a link to return to the home page.
+   *
+   * @returns {React.ReactElement} The BlogIndexPage component.
+   */
 export default function BlogIndexPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-4 md:p-8 lg:p-12 relative">
@@ -25,7 +34,7 @@ export default function BlogIndexPage() {
         interactive={true}
       />
       <div className="z-10 w-full items-center justify-between font-mono text-sm relative">
-
+        <FloatingDock items={blogDockItems} />
         <div className="max-w-6xl mx-auto mt-16 mb-32">
           <motion.div
             className="text-center mb-16"
@@ -87,11 +96,10 @@ export default function BlogIndexPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-          ><Button>
+          >
             <Link href="/" className="text-white/50 hover:text-white underline transition-colors">
               Return to home
             </Link>
-</Button>
           </motion.div>
         </div>
       </div>
