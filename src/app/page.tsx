@@ -1,6 +1,6 @@
 'use client';
 
-import Image from "next/image";
+
 import Link from "next/link";
 import BentoGridDemo from "@/components/bento-grid-demo";
 import WobbleCardDemo from "@/components/wobble-card-demo";
@@ -58,15 +58,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="flex items-center justify-center"
           >
-            <Image
-              className="dark:invert"
-              src="/next.svg"
-              alt="Next.js logo"
-              width={360}
-              height={76}
-              priority
-            />
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold font-mono text-white">
+              Drew<span className="text-blue-400">./</span>dev
+            </h1>
           </motion.div>
         </header>
 
@@ -313,7 +309,7 @@ export default function Home() {
           </motion.div>
 
           <p className="text-sm text-foreground/70 mb-6 max-w-2xl text-center">
-            <span className="text-blue-200 font-extrabold text-lg">DesignSystem.io</span> —
+            <span className="text-blue-200 font-extrabold text-lg font-mono">Drew<span className="text-blue-400">./</span>dev</span> —
             <EnhancedTextEffect
               words="Build beautiful, consistent interfaces faster with our comprehensive design system tools and premium component library. Elevate your design workflow today."
               duration={0.2}
