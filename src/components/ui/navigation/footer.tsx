@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -5,10 +6,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { 
-  IconBrandGithub, 
-  IconBrandTwitter, 
-  IconBrandLinkedin, 
+import {
+  IconBrandGithub,
+  IconBrandTwitter,
+  IconBrandLinkedin,
   IconBrandDiscord,
   IconMail,
   IconHeart,
@@ -58,33 +59,33 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
   ];
 
   const socialLinks = [
-    { 
-      label: "GitHub", 
-      href: "https://github.com/drewsephski/", 
+    {
+      label: "GitHub",
+      href: "https://github.com/drewsephski/",
       icon: <IconBrandGithub size={20} />,
       hoverColor: "hover:text-gray-400"
     },
-    { 
-      label: "Twitter", 
-      href: "https://twitter.com/", 
+    {
+      label: "Twitter",
+      href: "https://twitter.com/",
       icon: <IconBrandTwitter size={20} />,
       hoverColor: "hover:text-blue-400"
     },
-    { 
-      label: "LinkedIn", 
-      href: "https://linkedin.com/", 
+    {
+      label: "LinkedIn",
+      href: "https://linkedin.com/",
       icon: <IconBrandLinkedin size={20} />,
       hoverColor: "hover:text-blue-600"
     },
-    { 
-      label: "Discord", 
-      href: "https://discord.com/", 
+    {
+      label: "Discord",
+      href: "https://discord.com/",
       icon: <IconBrandDiscord size={20} />,
       hoverColor: "hover:text-indigo-400"
     },
-    { 
-      label: "Email", 
-      href: "mailto:contact@dzn.dev", 
+    {
+      label: "Email",
+      href: "mailto:contact@dzn.dev",
       icon: <IconMail size={20} />,
       hoverColor: "hover:text-red-400"
     },
@@ -93,10 +94,10 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className={cn("bg-neutral-900/50 border-t border-neutral-800/50 pt-16 pb-8", className)}>
+    <footer className={cn("bg-neutral-900/50 border-t border-neutral-800/50 pt-12 pb-0", className)}>
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-0">
           {/* Logo and Description */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-4">
@@ -136,7 +137,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-neutral-400 hover:text-white transition-colors"
                     >
@@ -150,7 +151,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
         </div>
 
         {/* Newsletter Subscription */}
-        <div className="border-t border-neutral-800/50 pt-8 pb-8">
+        <div className="border-t border-neutral-800/50 pt-6 pb-6">
           <div className="max-w-xl mx-auto text-center">
             <h3 className="text-white font-medium mb-2">Subscribe to our newsletter</h3>
             <p className="text-neutral-400 mb-4">
@@ -174,7 +175,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-neutral-800/50 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-neutral-800/50 pt-6 flex flex-col md:flex-row justify-between items-center pb-6">
           <div className="text-neutral-400 text-sm mb-4 md:mb-0">
             <span>© {currentYear} DZN.DEV. All rights reserved.</span>
             <span className="mx-2">•</span>

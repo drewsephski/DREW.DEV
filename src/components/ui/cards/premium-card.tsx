@@ -1,20 +1,10 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-interface PremiumCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  className?: string;
-  variant?: "default" | "gradient" | "glass" | "dark";
-  hoverEffect?: "glow" | "lift" | "border" | "none";
-  glowColor?: string;
-  borderGradient?: boolean;
-  interactive?: boolean;
-}
-
-export const PremiumCard: React.FC<PremiumCardProps> = ({
+export const PremiumCard = ({
   children,
   className,
   variant = "default",
@@ -26,16 +16,16 @@ export const PremiumCard: React.FC<PremiumCardProps> = ({
 }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef(null);
 
   // Handle mouse move for interactive effects
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e) => {
     if (!interactive || !cardRef.current) return;
-    
+
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     setMousePosition({ x, y });
   };
 
@@ -60,7 +50,7 @@ export const PremiumCard: React.FC<PremiumCardProps> = ({
   // Hover effect styles
   const getHoverStyles = () => {
     if (!interactive) return "";
-    
+
     switch (hoverEffect) {
       case "glow":
         return "transition-all duration-300 hover:shadow-lg";
@@ -89,16 +79,6 @@ export const PremiumCard: React.FC<PremiumCardProps> = ({
       height: `${cardHeight * 1.5}px`,
       left: `${x - cardWidth * 0.75}px`,
       top: `${y - cardHeight * 0.75}px`,
-    };
-  };
-
-  // Border gradient style
-  const getBorderStyle = () => {
-    if (!borderGradient) return {};
-
-    return {
-      background: "linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899)",
-      padding: "1px",
     };
   };
 
@@ -162,12 +142,7 @@ export const PremiumCard: React.FC<PremiumCardProps> = ({
 };
 
 // Premium Card Header
-interface PremiumCardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export const PremiumCardHeader: React.FC<PremiumCardHeaderProps> = ({
+export const PremiumCardHeader = ({
   children,
   className,
   ...props
@@ -183,13 +158,7 @@ export const PremiumCardHeader: React.FC<PremiumCardHeaderProps> = ({
 };
 
 // Premium Card Title
-interface PremiumCardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  children: React.ReactNode;
-  className?: string;
-  gradient?: boolean;
-}
-
-export const PremiumCardTitle: React.FC<PremiumCardTitleProps> = ({
+export const PremiumCardTitle = ({
   children,
   className,
   gradient = false,
@@ -210,12 +179,7 @@ export const PremiumCardTitle: React.FC<PremiumCardTitleProps> = ({
 };
 
 // Premium Card Content
-interface PremiumCardContentProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export const PremiumCardContent: React.FC<PremiumCardContentProps> = ({
+export const PremiumCardContent = ({
   children,
   className,
   ...props
@@ -231,12 +195,7 @@ export const PremiumCardContent: React.FC<PremiumCardContentProps> = ({
 };
 
 // Premium Card Footer
-interface PremiumCardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export const PremiumCardFooter: React.FC<PremiumCardFooterProps> = ({
+export const PremiumCardFooter = ({
   children,
   className,
   ...props

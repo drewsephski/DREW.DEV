@@ -22,7 +22,7 @@ export default function AboutPage() {
             About DZN.DEV
           </h1>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-            We're building the next generation of UI components for modern web applications.
+            We&apos;re building the next generation of UI components for modern web applications.
           </p>
         </motion.div>
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
           <AceternityGlareCard className="p-8 md:p-12">
             <h2 className="text-3xl font-bold mb-6 text-white">Our Mission</h2>
             <p className="text-lg text-neutral-300 mb-6">
-              At DZN.DEV, we're on a mission to simplify the process of building beautiful, responsive, and accessible web applications. We believe that great design should be accessible to everyone, regardless of their technical expertise.
+              At DZN.DEV, we&apos;re on a mission to simplify the process of building beautiful, responsive, and accessible web applications. We believe that great design should be accessible to everyone, regardless of their technical expertise.
             </p>
             <p className="text-lg text-neutral-300">
               Our component library combines the latest design trends with performance-optimized code to help developers create stunning user interfaces without sacrificing speed or accessibility.
@@ -75,6 +75,7 @@ export default function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-400 hover:text-white transition-colors"
+                      title="GitHub Profile"
                     >
                       <IconBrandGithub size={20} />
                     </a>
@@ -83,6 +84,7 @@ export default function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-400 hover:text-blue-400 transition-colors"
+                      title="Twitter Profile"
                     >
                       <IconBrandTwitter size={20} />
                     </a>
@@ -91,6 +93,7 @@ export default function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-400 hover:text-blue-600 transition-colors"
+                      title="LinkedIn Profile"
                     >
                       <IconBrandLinkedin size={20} />
                     </a>
@@ -121,6 +124,7 @@ export default function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-400 hover:text-white transition-colors"
+                      title="GitHub Profile"
                     >
                       <IconBrandGithub size={20} />
                     </a>
@@ -129,6 +133,7 @@ export default function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-400 hover:text-blue-400 transition-colors"
+                      title="Twitter Profile"
                     >
                       <IconBrandTwitter size={20} />
                     </a>
@@ -137,6 +142,7 @@ export default function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-400 hover:text-blue-600 transition-colors"
+                      title="LinkedIn Profile"
                     >
                       <IconBrandLinkedin size={20} />
                     </a>
@@ -210,7 +216,7 @@ export default function AboutPage() {
           <Card className="bg-neutral-900/50 border-neutral-800/50">
             <CardContent className="p-8">
               <p className="text-lg text-neutral-300 mb-6">
-                Have questions or want to learn more about our component library? We'd love to hear from you!
+                Have questions or want to learn more about our component library? We&apos;d love to hear from you!
               </p>
               <div className="flex items-center mb-4">
                 <IconMail size={24} className="text-blue-500 mr-3" />
@@ -220,9 +226,9 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center">
                 <IconBrandTwitter size={24} className="text-blue-500 mr-3" />
-                <a 
-                  href="https://twitter.com/" 
-                  target="_blank" 
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-neutral-300 hover:text-white transition-colors"
                 >

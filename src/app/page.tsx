@@ -1,7 +1,6 @@
 'use client';
 
 import Image from "next/image";
-import Link from "next/link";
 import BentoGridDemo from "@/components/bento-grid-demo";
 import WobbleCardDemo from "@/components/wobble-card-demo";
 import TextGenerateEffectDemo from "@/components/text-generate-effect-demo";
@@ -9,17 +8,34 @@ import FeaturedArticles from "@/components/featured-articles";
 import { EnhancedTextEffect } from "@/components/ui/effects/enhanced-text-effect";
 import { AnimatedIcon } from "@/components/ui/effects/animated-icon";
 import { EnhancedCard } from "@/components/ui/cards/enhanced-card";
-// Fix GitHubButton import to use default export
 import GitHubButton from "@/components/ui/buttons/github-button";
 import Icon from "@/components/ui/icon";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion } from "motion/react";
 import { AceternityGlareCard } from "@/components/ui/cards/aceternity-glare-card";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import GlobalNavigation from "@/components/global-navigation";
 
 export default function Home() {
   // Force client-side rendering for dark mode
   const [mounted, setMounted] = useState(false);
+
+  // Memoize static content for better performance
+  const backgroundGradient = useMemo(() => (
+    <BackgroundGradientAnimation
+      gradientBackgroundStart="rgb(0, 0, 30)"
+      gradientBackgroundEnd="rgb(0, 10, 60)"
+      firstColor="0, 50, 150"
+      secondColor="30, 70, 200"
+      thirdColor="0, 100, 180"
+      fourthColor="10, 30, 120"
+      fifthColor="50, 90, 160"
+      pointerColor="70, 130, 210"
+      size="100%"
+      blendingValue="hard-light"
+      interactive={true}
+    />
+  ), []);
 
   useEffect(() => {
     // Set mounted state
@@ -35,21 +51,10 @@ export default function Home() {
   return (
     <div className="relative min-h-screen font-sans">
       {/* Interactive gradient background animation */}
-      <BackgroundGradientAnimation
-        gradientBackgroundStart="rgb(0, 0, 30)"
-        gradientBackgroundEnd="rgb(0, 10, 60)"
-        firstColor="0, 50, 150"
-        secondColor="30, 70, 200"
-        thirdColor="0, 100, 180"
-        fourthColor="10, 30, 120"
-        fifthColor="50, 90, 160"
-        pointerColor="70, 130, 210"
-        size="100%"
-        blendingValue="hard-light"
-        interactive={true}
-      />
+      {backgroundGradient}
 
-      {/* Navigation is now handled by the global navigation component */}
+      {/* Global Navigation Component */}
+      <GlobalNavigation />
 
       {/* Content */}
       <div className="relative z-10 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 pt-32">

@@ -7,14 +7,15 @@ import { motion, AnimatePresence } from "motion/react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/buttons/button";
-import { AceternityDropdown, DropdownOption } from "@/components/ui/dropdown/aceternity-dropdown";
-import { 
-  IconHome, 
-  IconComponents, 
-  IconPalette, 
-  IconCode, 
-  IconCreditCard, 
-  IconBook, 
+import { DropdownOption } from "@/components/ui/dropdown/aceternity-dropdown";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import {
+  IconHome,
+  IconComponents,
+  IconPalette,
+  IconCode,
+  IconCreditCard,
+  IconBook,
   IconChevronDown,
   IconBrandGithub,
   IconLayoutDashboard
@@ -47,6 +48,11 @@ export const MainNavbar = () => {
       icon: <IconComponents size={18} />,
     },
     {
+      name: "Blogs",
+      href: "/blog",
+      icon: <IconLayoutDashboard size={18} />,
+    },
+    {
       name: "Documentation",
       href: "#",
       icon: <IconBook size={18} />,
@@ -61,11 +67,6 @@ export const MainNavbar = () => {
       name: "Pricing",
       href: "/pricing",
       icon: <IconCreditCard size={18} />,
-    },
-    {
-      name: "Blog",
-      href: "/blog",
-      icon: <IconLayoutDashboard size={18} />,
     },
   ];
 
@@ -112,6 +113,7 @@ export const MainNavbar = () => {
               return (
                 <div key={item.name} className="relative">
                   <button
+                    type="button"
                     className={cn(
                       "px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors",
                       pathname === item.href
@@ -175,6 +177,7 @@ export const MainNavbar = () => {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <Link href="https://github.com/drewsephski/" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="sm">
               <IconBrandGithub className="mr-1" size={18} />
@@ -190,6 +193,7 @@ export const MainNavbar = () => {
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
           className="md:hidden p-2 rounded-md text-neutral-400 hover:text-white hover:bg-white/5"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
@@ -236,6 +240,7 @@ export const MainNavbar = () => {
                   return (
                     <div key={item.name} className="flex flex-col">
                       <button
+                        type="button"
                         className={cn(
                           "px-3 py-2 rounded-md text-sm font-medium flex items-center justify-between",
                           pathname === item.href

@@ -10,7 +10,7 @@ import { Accordion } from "@/components/ui/accordion";
 
 export default function PricingPage() {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
-  const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
+  // Removed unused state variable
 
   const handlePlanHover = (plan: string | null) => {
     setHoveredPlan(plan);
@@ -71,6 +71,7 @@ export default function PricingPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <button
+                  type="button"
                   onClick={() => setBillingPeriod('monthly')}
                   className={`relative px-6 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                     billingPeriod === 'monthly'
@@ -81,6 +82,7 @@ export default function PricingPage() {
                   Monthly
                 </button>
                 <button
+                  type="button"
                   onClick={() => setBillingPeriod('yearly')}
                   className={`relative px-6 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                     billingPeriod === 'yearly'
@@ -106,26 +108,28 @@ export default function PricingPage() {
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               onHoverStart={() => handlePlanHover('starter')}
               onHoverEnd={() => handlePlanHover(null)}
+              className="animate-pulse-slow h-full"
             >
               <AceternityGlareCard
-                className="h-full min-h-[600px] flex flex-col text-white overflow-hidden"
-                contentClassName="flex flex-col p-6 relative z-10"
+                className="h-full min-h-[680px] flex flex-col text-white overflow-hidden"
+                contentClassName="flex flex-col px-4 md:px-6 py-8 relative z-10 text-center h-full"
+                aria-label="Starter Plan"
               >
                 {/* Plan Icon */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-bl-full"></div>
-                <div className="mb-6 relative">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 mb-4">
-                    <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mb-8 relative">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 mb-5 mx-auto">
+                    <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">Starter</h3>
-                  <div className="flex items-end mb-4">
+                  <h3 className="text-xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">Starter</h3>
+                  <div className="flex items-end mb-5 justify-center">
                     <span className="text-4xl font-bold">${billingPeriod === 'monthly' ? '29' : '23'}</span>
                     <span className="text-lg text-blue-300/70 ml-2">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
                     {billingPeriod === 'yearly' && <span className="ml-2 text-xs text-blue-300/70">(billed annually)</span>}
                   </div>
-                  <div className="text-blue-100/80 mb-6 text-sm">
+                  <div className="text-blue-100/80 mb-8 text-sm max-w-[90%] mx-auto">
                     <EnhancedTextEffect
                       words="Perfect for individuals and small teams just getting started with design systems."
                       duration={0.3}
@@ -137,8 +141,8 @@ export default function PricingPage() {
                   </div>
                 </div>
 
-                <div className="flex-grow">
-                  <ul className="space-y-3 mb-8">
+                <div className="flex-grow flex flex-col justify-center">
+                  <ul className="space-y-4 mb-10 max-w-[90%] mx-auto">
                     {[
                       'Up to 3 team members',
                       '50 components',
@@ -147,7 +151,7 @@ export default function PricingPage() {
                       'Community support'
                     ].map((feature, index) => (
                       <li key={index} className="flex items-start">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 mt-0.5">
+                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 mt-0.5" aria-hidden="true">
                           <svg className="h-3 w-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
@@ -158,15 +162,18 @@ export default function PricingPage() {
                   </ul>
                 </div>
 
-                <motion.button
-                  type="button"
-                  className="group relative w-full py-3 px-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium rounded-lg transition-all duration-300 overflow-hidden"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="relative z-10">Start Free Trial</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </motion.button>
+                <div className="mt-auto pt-6">
+                  <motion.button
+                    type="button"
+                    className="group relative w-full py-3 px-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium rounded-lg transition-all duration-300 overflow-hidden"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    aria-label="Start Free Trial for Starter Plan"
+                  >
+                    <span className="relative z-10">Start Free Trial</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </motion.button>
+                </div>
               </AceternityGlareCard>
             </motion.div>
 
@@ -175,37 +182,38 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="md:-mt-4 md:-mb-4 z-10"
+              className="md:-mt-4 md:-mb-4 z-10 animate-pulse-slow h-full"
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               onHoverStart={() => handlePlanHover('pro')}
               onHoverEnd={() => handlePlanHover(null)}
             >
               <AceternityGlareCard
-                className="h-full min-h-[650px] flex flex-col text-white relative overflow-hidden"
-                contentClassName="flex flex-col p-8 relative z-10"
+                className="h-full min-h-[730px] flex flex-col text-white relative overflow-hidden"
+                contentClassName="flex flex-col px-4 md:px-8 py-10 relative z-10 text-center h-full"
+                aria-label="Pro Plan - Most Popular"
               >
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-bl-full"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-500/10 rounded-tr-full"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-bl-full" aria-hidden="true"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-500/10 rounded-tr-full" aria-hidden="true"></div>
 
                 {/* Popular badge */}
-                <div className="absolute -top-4 -right-16 w-40 transform rotate-45 bg-gradient-to-r from-indigo-600 to-purple-600 text-center py-1 text-xs font-bold text-white shadow-lg">
+                <div className="absolute -top-4 -right-16 w-40 transform rotate-45 bg-gradient-to-r from-indigo-600 to-purple-600 text-center py-1 text-xs font-bold text-white shadow-lg" aria-label="Most Popular Plan">
                   MOST POPULAR
                 </div>
 
-                <div className="mb-6 mt-2 relative">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-500/20 mb-4">
-                    <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mb-8 mt-2 relative">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-500/20 mb-5 mx-auto">
+                    <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500">Pro</h3>
-                  <div className="flex items-end mb-4">
+                  <h3 className="text-xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500">Pro</h3>
+                  <div className="flex items-end mb-5 justify-center">
                     <span className="text-4xl font-bold">${billingPeriod === 'monthly' ? '79' : '63'}</span>
                     <span className="text-lg text-indigo-300/70 ml-2">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
                     {billingPeriod === 'yearly' && <span className="ml-2 text-xs text-indigo-300/70">(billed annually)</span>}
                   </div>
-                  <div className="text-indigo-100/80 mb-6 text-sm">
+                  <div className="text-indigo-100/80 mb-8 text-sm max-w-[90%] mx-auto">
                     <EnhancedTextEffect
                       words="For growing teams that need more power and flexibility. Scale your design system with advanced features."
                       duration={0.3}
@@ -217,8 +225,8 @@ export default function PricingPage() {
                   </div>
                 </div>
 
-                <div className="flex-grow">
-                  <ul className="space-y-3 mb-8">
+                <div className="flex-grow flex flex-col justify-center">
+                  <ul className="space-y-4 mb-10 max-w-[90%] mx-auto">
                     {[
                       'Up to 10 team members',
                       'Unlimited components',
@@ -228,7 +236,7 @@ export default function PricingPage() {
                       'Priority email support'
                     ].map((feature, index) => (
                       <li key={index} className="flex items-start">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-500/20 flex items-center justify-center mr-3 mt-0.5">
+                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-500/20 flex items-center justify-center mr-3 mt-0.5" aria-hidden="true">
                           <svg className="h-3 w-3 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
@@ -239,15 +247,18 @@ export default function PricingPage() {
                   </ul>
                 </div>
 
-                <motion.button
-                  type="button"
-                  className="group relative w-full py-3 px-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 overflow-hidden shadow-lg shadow-indigo-500/20"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="relative z-10">Start Free Trial</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </motion.button>
+                <div className="mt-auto pt-6">
+                  <motion.button
+                    type="button"
+                    className="group relative w-full py-3 px-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 overflow-hidden shadow-lg shadow-indigo-500/20"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    aria-label="Start Free Trial for Pro Plan"
+                  >
+                    <span className="relative z-10">Start Free Trial</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </motion.button>
+                </div>
               </AceternityGlareCard>
             </motion.div>
 
@@ -259,26 +270,28 @@ export default function PricingPage() {
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               onHoverStart={() => handlePlanHover('enterprise')}
               onHoverEnd={() => handlePlanHover(null)}
+              className="animate-pulse-slow h-full"
             >
               <AceternityGlareCard
-                className="h-full min-h-[600px] flex flex-col text-white overflow-hidden"
-                contentClassName="flex flex-col p-6 relative z-10"
+                className="h-full min-h-[680px] flex flex-col text-white overflow-hidden"
+                contentClassName="flex flex-col px-4 md:px-6 py-8 relative z-10 text-center h-full"
+                aria-label="Enterprise Plan"
               >
                 {/* Plan Icon */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/10 rounded-bl-full"></div>
-                <div className="mb-6 relative">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-500/20 mb-4">
-                    <svg className="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/10 rounded-bl-full" aria-hidden="true"></div>
+                <div className="mb-8 relative">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-500/20 mb-5 mx-auto">
+                    <svg className="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-pink-600">Enterprise</h3>
-                  <div className="flex items-end mb-4">
+                  <h3 className="text-xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-pink-600">Enterprise</h3>
+                  <div className="flex items-end mb-5 justify-center">
                     <span className="text-4xl font-bold">${billingPeriod === 'monthly' ? '199' : '159'}</span>
                     <span className="text-lg text-pink-300/70 ml-2">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
                     {billingPeriod === 'yearly' && <span className="ml-2 text-xs text-pink-300/70">(billed annually)</span>}
                   </div>
-                  <div className="text-pink-100/80 mb-6 text-sm">
+                  <div className="text-pink-100/80 mb-8 text-sm max-w-[90%] mx-auto">
                     <EnhancedTextEffect
                       words="For large organizations with complex design system needs. Enterprise-grade solutions with dedicated support."
                       duration={0.3}
@@ -290,8 +303,8 @@ export default function PricingPage() {
                   </div>
                 </div>
 
-                <div className="flex-grow">
-                  <ul className="space-y-3 mb-8">
+                <div className="flex-grow flex flex-col justify-center">
+                  <ul className="space-y-4 mb-10 max-w-[90%] mx-auto">
                     {[
                       'Unlimited team members',
                       'Unlimited components',
@@ -302,7 +315,7 @@ export default function PricingPage() {
                       'Custom onboarding'
                     ].map((feature, index) => (
                       <li key={index} className="flex items-start">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-pink-500/20 flex items-center justify-center mr-3 mt-0.5">
+                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-pink-500/20 flex items-center justify-center mr-3 mt-0.5" aria-hidden="true">
                           <svg className="h-3 w-3 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
@@ -313,15 +326,18 @@ export default function PricingPage() {
                   </ul>
                 </div>
 
-                <motion.button
-                  type="button"
-                  className="group relative w-full py-3 px-4 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-medium rounded-lg transition-all duration-300 overflow-hidden"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="relative z-10">Contact Sales</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-pink-600 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </motion.button>
+                <div className="mt-auto pt-6">
+                  <motion.button
+                    type="button"
+                    className="group relative w-full py-3 px-4 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-medium rounded-lg transition-all duration-300 overflow-hidden"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    aria-label="Contact Sales for Enterprise Plan"
+                  >
+                    <span className="relative z-10">Contact Sales</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-pink-600 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </motion.button>
+                </div>
               </AceternityGlareCard>
             </motion.div>
           </div>

@@ -12,20 +12,20 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { WobbleCard } from "@/components/ui/cards/wobble-card";
 import { AceternityGlareCard } from "@/components/ui/cards/aceternity-glare-card";
 import { AceternityDropdown } from "@/components/ui/dropdown/aceternity-dropdown";
-import { IconPalette, IconLayoutDashboard, IconCode, IconBrandGithub, IconCreditCard, IconSpeedboat, IconAccessible } from "@tabler/icons-react";
+import { IconPalette, IconLayoutDashboard, IconCode, IconBrandGithub } from "@tabler/icons-react";
 
 // Demo component types
-type ColorToken = {
+export interface ColorToken {
   name: string;
   value: string;
 }
 
-type SpacingToken = {
+export interface SpacingToken {
   name: string;
   value: string;
 }
 
-type Component = {
+export interface ComponentType {
   id: string;
   name: string;
   description: string;
@@ -45,9 +45,12 @@ export default function DemoPage() {
   // Function to copy code to clipboard
   const [isCopied, setIsCopied] = useState(false);
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(generateCode());
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
+    const code = generateCode();
+    if (code) {
+      navigator.clipboard.writeText(code);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    }
   };
 
   // Demo data
@@ -205,7 +208,9 @@ export default function DemoPage() {
     if (selectedComponent === "button") {
       return (
         <div className="flex flex-col gap-4">
-          <Button variant={selectedVariant} size={selectedSize}>
+          <Button
+            variant={selectedVariant as "primary" | "secondary" | "outline" | "ghost" | "link" | "destructive"}
+            size={selectedSize as "sm" | "md" | "lg" | "icon"}>
             {selectedVariant.charAt(0).toUpperCase() + selectedVariant.slice(1)} Button
           </Button>
         </div>
@@ -219,7 +224,9 @@ export default function DemoPage() {
     } else if (selectedComponent === "badge") {
       return (
         <div className="flex flex-wrap gap-2">
-          <Badge variant={selectedVariant} size={selectedSize}>
+          <Badge
+            variant={selectedVariant as "primary" | "secondary" | "outline" | "success" | "warning" | "danger"}
+            size={selectedSize as "sm" | "md" | "lg"}>
             {selectedVariant.charAt(0).toUpperCase() + selectedVariant.slice(1)}
           </Badge>
         </div>
@@ -228,7 +235,9 @@ export default function DemoPage() {
       // Render different card types based on selectedCardType
       if (selectedCardType === "standard") {
         return (
-          <Card variant={selectedVariant} size={selectedSize}>
+          <Card
+            variant={selectedVariant as "default" | "bordered" | "elevated" | "glass" | "gradient"}
+            size={selectedSize as "sm" | "md" | "lg"}>
             <CardHeader>
               <CardTitle>{selectedVariant.charAt(0).toUpperCase() + selectedVariant.slice(1)} Card</CardTitle>
               <CardDescription>This is a {selectedVariant} card with {selectedSize} size</CardDescription>
@@ -304,7 +313,9 @@ export default function DemoPage() {
 
       // Default to standard card
       return (
-        <Card variant={selectedVariant} size={selectedSize}>
+        <Card
+          variant={selectedVariant as "default" | "bordered" | "elevated" | "glass" | "gradient"}
+          size={selectedSize as "sm" | "md" | "lg"}>
           <CardHeader>
             <CardTitle>{selectedVariant.charAt(0).toUpperCase() + selectedVariant.slice(1)} Card</CardTitle>
             <CardDescription>This is a {selectedVariant} card with {selectedSize} size</CardDescription>

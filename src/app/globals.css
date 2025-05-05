@@ -190,3 +190,14 @@
 .transform-origin-right {
   transform-origin: right;
 }
+
+/* Add these gradient classes for the StickyScroll component */
+.bg-gradient-0 {
+  background: linear-gradient(to bottom right, #06b6d4, #10b981);
+}
+.bg-gradient-1 {
+  background: linear-gradient(to bottom right, #ec4899, #6366f1);
+}
+.bg-gradient-2 {
+  background: linear-gradient(to bottom right, #f97316, #eab308);
+}

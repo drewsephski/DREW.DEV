@@ -1,20 +1,18 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/cards/card";
 import { AceternityGlareCard } from "@/components/ui/cards/aceternity-glare-card";
 import { Button } from "@/components/ui/buttons/button";
-import { 
-  IconDeviceLaptop, 
-  IconAccessible, 
-  IconBolt, 
-  IconPalette, 
-  IconComponents, 
+import {
+  IconDeviceLaptop,
+  IconAccessible,
+  IconBolt,
+  IconPalette,
+  IconComponents,
   IconBrandReact,
-  IconArrowRight,
   IconCheck
 } from "@tabler/icons-react";
 
@@ -78,7 +76,7 @@ export default function FeaturesPage() {
 
           <Card className="bg-neutral-900/50 border-neutral-800/50">
             <CardContent className="p-8">
-              <div className="bg-purple-500/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6">
+              <div className="bg-purple-500/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-3">
                 <IconBolt size={28} className="text-purple-500" />
               </div>
               <h2 className="text-2xl font-bold mb-3 text-white">Stunning Animations</h2>
@@ -125,69 +123,37 @@ export default function FeaturesPage() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mb-20"
       >
-        <AceternityGlareCard className="p-8 md:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6 text-white">Designed for Developers</h2>
-              <p className="text-lg text-neutral-300 mb-6">
-                Our component library is built with developers in mind, providing a seamless development experience with clean, well-documented code and intuitive APIs.
-              </p>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start">
-                  <div className="bg-blue-500/20 p-2 rounded-full mr-4 mt-1">
-                    <IconBrandReact size={20} className="text-blue-500" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-white mb-1">React & Next.js Ready</h3>
-                    <p className="text-neutral-400">Built specifically for React and Next.js applications with full TypeScript support.</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-blue-500/20 p-2 rounded-full mr-4 mt-1">
-                    <IconPalette size={20} className="text-blue-500" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-white mb-1">Customizable Design System</h3>
-                    <p className="text-neutral-400">Easily customize colors, typography, spacing, and more to match your brand.</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-blue-500/20 p-2 rounded-full mr-4 mt-1">
-                    <IconDeviceLaptop size={20} className="text-blue-500" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-white mb-1">Responsive by Default</h3>
-                    <p className="text-neutral-400">All components are designed to work flawlessly on any device size.</p>
-                  </div>
-                </li>
-              </ul>
-              <Link href="/docs/components">
-                <Button variant="primary" size="lg" className="group">
-                  Explore Components
-                  <IconArrowRight className="ml-2 transition-transform group-hover:translate-x-1" size={18} />
-                </Button>
-              </Link>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <AceternityGlareCard className="flex flex-col items-center justify-center p-6">
+            <div className="bg-blue-500/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+              <IconBrandReact size={28} className="text-blue-500" />
             </div>
-            <div className="relative">
-              <div className="aspect-w-4 aspect-h-3 rounded-xl overflow-hidden border border-neutral-800/50 shadow-xl">
-                <Image
-                  src="/images/code-preview.jpg"
-                  alt="Code preview"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-neutral-900 border border-neutral-800 rounded-lg p-4 shadow-xl">
-                <div className="text-sm text-neutral-400 font-mono">
-                  <span className="text-blue-400">import</span>{" "}
-                  <span className="text-green-400">{"{ Button }"}</span>{" "}
-                  <span className="text-blue-400">from</span>{" "}
-                  <span className="text-amber-400">"@/components/ui"</span>;
-                </div>
-              </div>
+            <h3 className="text-xl font-bold mb-2 text-white">React & Next.js Ready</h3>
+            <p className="text-neutral-300 text-sm">
+              Built specifically for React and Next.js applications with full TypeScript support.
+            </p>
+          </AceternityGlareCard>
+
+          <AceternityGlareCard className="flex flex-col items-center justify-center p-6">
+            <div className="bg-purple-500/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+              <IconPalette size={28} className="text-purple-500" />
             </div>
-          </div>
-        </AceternityGlareCard>
+            <h3 className="text-xl font-bold mb-2 text-white">Customizable Design</h3>
+            <p className="text-neutral-300 text-sm">
+              Easily customize colors, typography, spacing, and more to match your brand.
+            </p>
+          </AceternityGlareCard>
+
+          <AceternityGlareCard className="flex flex-col items-center justify-center p-6">
+            <div className="bg-green-500/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+              <IconDeviceLaptop size={28} className="text-green-500" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 text-white">Responsive by Default</h3>
+            <p className="text-neutral-300 text-sm">
+              All components are designed to work flawlessly on any device size.
+            </p>
+          </AceternityGlareCard>
+        </div>
       </motion.section>
 
       {/* Feature Grid */}

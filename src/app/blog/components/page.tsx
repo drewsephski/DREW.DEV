@@ -6,7 +6,6 @@ import { BackgroundGradientAnimation } from "@/components/ui/background-gradient
 import Link from "next/link";
 import { EnhancedTextEffect } from "@/components/ui/effects/enhanced-text-effect";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { FloatingDock, blogDockItems } from "@/components/ui/navigation/floating-dock";
 import Image from "next/image";
 
 export default function ComponentsBlogIndexPage() {
@@ -26,7 +25,7 @@ export default function ComponentsBlogIndexPage() {
         interactive={true}
       />
       <div className="z-10 w-full items-center justify-between font-mono text-sm relative">
-        <FloatingDock items={blogDockItems} />
+        {/* FloatingDock is now provided by NavigationProvider */}
 
         <div className="max-w-6xl mx-auto mt-16 mb-32">
           <motion.div
@@ -59,29 +58,41 @@ export default function ComponentsBlogIndexPage() {
           </motion.div>
 
           <BentoGrid className="max-w-6xl mx-auto">
-            {componentPosts.map((post, i) => (
-              <BentoGridItem
-                key={i}
-                title={post.title}
-                description={post.description}
-                header={
-                  <Link href={post.href} className="block w-full h-full">
-                    <div className="w-full h-full min-h-[10rem] rounded-xl bg-gradient-to-br from-primary/10 via-neutral-200/80 to-accent/10 dark:from-primary/20 dark:via-neutral-900/50 dark:to-accent/20 relative overflow-hidden group">
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-primary/20 via-neutral-200/90 to-accent/20 dark:from-primary/30 dark:via-neutral-900/60 dark:to-accent/30 transition-opacity duration-700"></div>
-                      <div className="absolute -inset-[100%] bg-[length:50%_50%] bg-no-repeat animate-shimmer bg-gradient-to-r from-transparent via-white/10 dark:via-white/5 to-transparent"></div>
-                      <div className="absolute inset-0 flex items-center justify-center p-4">
-                        <img src={post.image} alt={post.title} className="w-full h-full object-contain" />
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <span className="text-white font-medium text-sm">Read Article</span>
+            {componentPosts
+              .filter(post => {
+                // Verify the post has a valid href
+                const href = post.href.split('/').pop();
+                return href && href.length > 0;
+              })
+              .map((post, i) => (
+                <BentoGridItem
+                  key={i}
+                  title={post.title}
+                  description={post.description}
+                  header={
+                    <Link href={post.href} className="block w-full h-full">
+                      <div className="w-full h-full min-h-[10rem] rounded-xl bg-gradient-to-br from-primary/10 via-neutral-200/80 to-accent/10 dark:from-primary/20 dark:via-neutral-900/50 dark:to-accent/20 relative overflow-hidden group">
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-primary/20 via-neutral-200/90 to-accent/20 dark:from-primary/30 dark:via-neutral-900/60 dark:to-accent/30 transition-opacity duration-700"></div>
+                        <div className="absolute -inset-[100%] bg-[length:50%_50%] bg-no-repeat animate-shimmer bg-gradient-to-r from-transparent via-white/10 dark:via-white/5 to-transparent"></div>
+                        <div className="absolute inset-0 flex items-center justify-center p-4">
+                          <Image
+                            src={post.image}
+                            alt={post.title}
+                            width={200}
+                            height={200}
+                            className="w-full h-full object-contain"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span className="text-white font-medium text-sm">Read Article</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                }
-                icon={post.icon}
-                className={post.featured ? "md:col-span-2" : ""}
-              />
-            ))}
+                    </Link>
+                  }
+                  icon={post.icon}
+                  className={post.featured ? "md:col-span-2" : ""}
+                />
+              ))}
           </BentoGrid>
 
           <motion.div

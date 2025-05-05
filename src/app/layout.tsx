@@ -5,6 +5,8 @@ import Script from "next/script";
 import SpotlightCursor from "@/components/SpotlightCursor";
 import Providers from "./providers";
 import { Layout } from "@/components/layout";
+import { SkipToContent } from "@/components/ui/a11y/skip-to-content";
+import { NavbarProvider } from "@/components/ui/navigation/navbar-context";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -29,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         {/* Add a script to clean up browser extension attributes that might cause hydration issues */}
         <Script id="clean-extensions" strategy="beforeInteractive">
@@ -69,8 +71,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased`}
+        className={`${inter.variable} ${robotoMono.variable} antialiased relative min-h-screen`}
       >
+        <SkipToContent />
+
+        {/* Global background */}
+
         <SpotlightCursor
           config={{
             radius: 300,
@@ -79,16 +85,19 @@ export default function RootLayout({
             smoothing: 0.1
           }}
         />
-        {/* Add dark class to body for dark mode */}
-        <script dangerouslySetInnerHTML={{ __html: `
-          document.documentElement.classList.add('dark');
-        `}} />
 
-        <Providers>
-          <Layout>
-            {children}
-          </Layout>
-        </Providers>
+        <NavbarProvider>
+          {/* Add global navigation container */}
+          <div id="global-navigation" className="z-50"></div>
+
+          <Providers>
+            <Layout>
+              <main id="main-content">
+                {children}
+              </main>
+            </Layout>
+          </Providers>
+        </NavbarProvider>
       </body>
     </html>
   );

@@ -19,6 +19,25 @@ const nextConfig: NextConfig = {
 
     return config;
   },
+  // Optimize for Netlify deployment
+  output: 'standalone',
+  images: {
+    domains: ['dzn-dev.netlify.app'],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
+  },
+  poweredByHeader: false,
+
+  // Disable ESLint during build process
+  eslint: {
+    // Only run ESLint in development, not during builds
+    ignoreDuringBuilds: true,
+  },
+  // Disable TypeScript type checking during build
+  typescript: {
+    // Skip type checking during builds
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;

@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -12,42 +13,42 @@ const guides = [
     title: "Getting Started",
     description: "Learn how to set up and start using our component library in your project.",
     icon: <IconBook size={24} className="text-blue-500" />,
-    href: "/docs/guides/getting-started",
+    href: "/blog/guides/getting-started",
     tags: ["Beginner", "Setup"],
   },
   {
     title: "Customizing Components",
     description: "Customize the appearance and behavior of components to match your brand.",
     icon: <IconPalette size={24} className="text-purple-500" />,
-    href: "/docs/guides/customizing-components",
+    href: "/blog/guides/customizing-components",
     tags: ["Intermediate", "Styling"],
   },
   {
     title: "Creating Custom Components",
     description: "Learn how to create your own custom components using our library as a foundation.",
     icon: <IconComponents size={24} className="text-green-500" />,
-    href: "/docs/guides/creating-custom-components",
+    href: "/blog/guides/creating-custom-components",
     tags: ["Advanced", "Development"],
   },
   {
     title: "Animations and Effects",
     description: "Add engaging animations and effects to enhance user experience.",
     icon: <IconCode size={24} className="text-amber-500" />,
-    href: "/docs/guides/animations-and-effects",
+    href: "/blog/guides/animations-and-effects",
     tags: ["Intermediate", "Animation"],
   },
   {
     title: "Accessibility Best Practices",
     description: "Ensure your applications are accessible to all users with our comprehensive guide.",
     icon: <IconAccessible size={24} className="text-red-500" />,
-    href: "/docs/guides/accessibility",
+    href: "/blog/guides/accessibility",
     tags: ["All Levels", "Accessibility"],
   },
   {
     title: "Performance Optimization",
     description: "Optimize your application for better performance and user experience.",
     icon: <IconCode size={24} className="text-blue-500" />,
-    href: "/docs/guides/performance-optimization",
+    href: "/blog/guides/performance-optimization",
     tags: ["Advanced", "Performance"],
   },
 ];
@@ -102,9 +103,9 @@ export default function GuidesPage() {
                     </div>
                     <Button variant="ghost" size="sm" className="group">
                       Read Guide
-                      <IconArrowRight 
-                        size={16} 
-                        className="ml-1 transition-transform duration-300 group-hover:translate-x-1" 
+                      <IconArrowRight
+                        size={16}
+                        className="ml-1 transition-transform duration-300 group-hover:translate-x-1"
                       />
                     </Button>
                   </div>
@@ -154,9 +155,9 @@ export default function GuidesPage() {
                   <h3 className="text-lg font-medium text-white mb-1">{video.title}</h3>
                   <Button variant="ghost" size="sm" className="group p-0">
                     Watch Tutorial
-                    <IconArrowRight 
-                      size={16} 
-                      className="ml-1 transition-transform duration-300 group-hover:translate-x-1" 
+                    <IconArrowRight
+                      size={16}
+                      className="ml-1 transition-transform duration-300 group-hover:translate-x-1"
                     />
                   </Button>
                 </CardContent>

@@ -1,0 +1,50 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Handle Next.js static assets correctly
+[[redirects]]
+  from = "/_next/static/*"
+  to = "/_next/static/:splat"
+  status = 200
+
+# Handle Next.js data files
+[[redirects]]
+  from = "/_next/data/*"
+  to = "/_next/data/:splat"
+  status = 200
+
+# Handle Next.js image optimization
+[[redirects]]
+  from = "/_next/image*"
+  to = "/_next/image:splat"
+  status = 200
+
+# Handle all other routes - this should be last
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NEXT_PUBLIC_SITE_URL = "https://dzn-dev.netlify.app"
+  NODE_VERSION = "18"
+
+# Enable Next.js Image Optimization
+[functions]
+  included_files = ["node_modules/.pnpm/sharp@*/node_modules/sharp/vendor/**"]
+  node_bundler = "esbuild"
+
+# For Next.js 13+ with app directory
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = false
+  minify = false
+[build.processing.js]
+  bundle = false
+  minify = false
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = false

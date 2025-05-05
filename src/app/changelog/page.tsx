@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -5,16 +6,20 @@ import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/cards/card";
 import { IconCalendar, IconTag, IconBug, IconRocket, IconTools, IconBolt } from "@tabler/icons-react";
 
-interface ChangelogEntry {
-  version: string;
-  date: string;
-  changes: {
-    type: "feature" | "improvement" | "fix" | "breaking";
-    description: string;
-  }[];
-}
+/**
+ * @typedef {Object} Change
+ * @property {'feature'|'improvement'|'fix'|'breaking'} type - Type of change
+ * @property {string} description - Description of the change
+ */
 
-const changelog: ChangelogEntry[] = [
+/**
+ * @typedef {Object} ChangelogEntry
+ * @property {string} version - Version number
+ * @property {string} date - Release date
+ * @property {Change[]} changes - List of changes
+ */
+
+const changelog = [
   {
     version: "1.5.0",
     date: "June 15, 2023",

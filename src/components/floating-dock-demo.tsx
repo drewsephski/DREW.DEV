@@ -22,18 +22,18 @@ export default function FloatingDockDemo() {
       href: "/",
     },
     {
-      title: "Documentation",
-      icon: (
-        <IconFileText className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "/demo",
-    },
-    {
       title: "Components",
       icon: (
         <IconComponents className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "/demo",
+      href: "/components",
+    },
+    {
+      title: "Blog",
+      icon: (
+        <IconFileText className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/blog",
     },
     {
       title: "Pricing",
@@ -43,13 +43,6 @@ export default function FloatingDockDemo() {
       href: "/pricing",
     },
     {
-      title: "Blog",
-      icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "/blog",
-    },
-    {
       title: "GitHub",
       icon: (
         <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
@@ -57,9 +50,14 @@ export default function FloatingDockDemo() {
       href: "https://github.com/drewsephski/",
     },
   ];
+
   return (
-    <div className="flex items-center justify-center w-full">
-      <FloatingDock items={links} />
+    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+      <FloatingDock
+        items={links}
+        desktopClassName="shadow-lg border border-white/10"
+        mobileClassName=""
+      />
     </div>
   );
 }

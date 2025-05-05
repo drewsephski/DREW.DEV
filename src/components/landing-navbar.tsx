@@ -43,8 +43,8 @@ export default function LandingNavbar() {
       showOnMobile: false, // Hide on mobile
     },
     {
-      name: "Features",
-      link: "/#features",
+      name: "Blogs",
+      link: "/blog",
       showOnMobile: true,
     },
     {

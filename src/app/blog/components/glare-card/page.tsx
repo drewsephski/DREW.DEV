@@ -4,6 +4,7 @@ import React from "react";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import Link from "next/link";
 import { BlogContainer } from "@/components/ui/blog";
+import { RelatedArticles } from "@/components/ui/blog/related-articles";
 
 export default function GlareCardComponentBlog() {
   return (
@@ -269,6 +270,13 @@ export function AceternityGlareCard({
             Next: Text Effects Component →
           </Link>
         </div>
+
+        {/* Add Related Articles component */}
+        <RelatedArticles
+          currentPostSlug="glare-card"
+          posts={blogPosts.filter(post => post.category === "Components")}
+          maxPosts={3}
+        />
       </BlogContainer>
     </main>
   );
