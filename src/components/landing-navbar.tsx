@@ -23,11 +23,9 @@ const LandingNavbarLogo = () => {
       transition={{ type: "spring", stiffness: 400, damping: 10 }}
     >
       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-        <span className="text-white font-bold text-sm">D</span>
+        <span className="text-white font-bold text-sm">DS</span>
       </div>
-      <span className="font-medium text-black dark:text-white font-mono">
-        Drew<span className="text-blue-400">./</span>dev
-      </span>
+      <span className="font-medium text-black dark:text-white">DesignSystem.io</span>
     </motion.a>
   );
 };
