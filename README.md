@@ -1,4 +1,4 @@
-# DZN.dev UI Component Library
+# DZN.DEV UI Component Library
 
 A modern, accessible, and customizable UI component library for React applications.
 

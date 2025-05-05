@@ -645,7 +645,7 @@ export class BadgeComponent {
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
               <EnhancedTextEffect
-                words="Experience how DZN.dev helps you build and manage your design system with premium components."
+                words="Experience how DZN.DEV helps you build and manage your design system with premium components."
                 duration={0.2}
                 variant="reveal"
                 textSize="xl"
@@ -668,7 +668,7 @@ export class BadgeComponent {
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <div className="flex-1 text-center text-sm font-medium text-neutral-400">DZN.dev - Demo</div>
+              <div className="flex-1 text-center text-sm font-medium text-neutral-400">DZN.DEV - Demo</div>
             </div>
 
             {/* Demo Tabs */}

@@ -321,7 +321,7 @@ export default function Home() {
                 height={40}
                 className="dark:invert"
               />
-              <span className="text-blue-200 font-extrabold text-lg">DZN.dev</span>
+              <span className="text-blue-200 font-extrabold text-lg">DZN.DEV</span>
             </span>
             <EnhancedTextEffect
               words="Build beautiful, consistent interfaces faster with our comprehensive design system tools and premium component library. Elevate your design workflow today."

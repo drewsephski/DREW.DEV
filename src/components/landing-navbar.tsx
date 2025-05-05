@@ -24,12 +24,12 @@ const LandingNavbarLogo = () => {
     >
       <Image
         src="/next.svg"
-        alt="Next.js Logo"
+        alt="DZN.DEV"
         width={24}
         height={24}
         className="dark:invert"
       />
-      <span className="font-medium text-black dark:text-white">DZN.dev</span>
+      <span className="font-medium text-black dark:text-white">DZN.DEV</span>
     </motion.a>
   );
 };
