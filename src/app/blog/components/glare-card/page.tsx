@@ -6,6 +6,9 @@ import Link from "next/link";
 import { BlogContainer } from "@/components/ui/blog";
 import { RelatedArticles } from "@/components/ui/blog/related-articles";
 
+// Add this import or define the blog posts data
+import { blogPosts } from "@/data/blog-posts";
+
 export default function GlareCardComponentBlog() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-4 md:p-8 lg:p-12 relative">

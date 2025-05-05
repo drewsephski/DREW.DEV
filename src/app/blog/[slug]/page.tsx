@@ -47,7 +47,7 @@ export default function DynamicBlogPage() {
       // This is a fallback for posts that don't have dedicated pages
       console.log("Rendering content directly for:", post.title);
     }
-  }, [post, post?.href, router, slug, post?.title]);
+  }, [post, post?.href, router, slug]);
 
   if (!post) {
     // If no matching post is found, show a "coming soon" message
@@ -116,7 +116,7 @@ export default function DynamicBlogPage() {
       />
 
       <BlogContainer
-        title={post.title}
+        title={post.title || ""}
         publishDate={post.date || "Recently published"}
         backgroundOpacity={0.6}
         className="text-center overflow-hidden"
@@ -128,7 +128,7 @@ export default function DynamicBlogPage() {
             </div>
           )}
 
-          <p className="lead text-xl md:text-2xl">{post.description}</p>
+          <p className="lead text-xl md:text-2xl">{post.description || ""}</p>
 
           {/* Placeholder content - in a real app, this would be the actual blog content */}
           <div className="my-8">
@@ -147,7 +147,7 @@ export default function DynamicBlogPage() {
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Getting Started</h2>
             <p>
-              To get started with {post.title}, you&apos;ll need a basic understanding of React and Next.js.
+              To get started with {post.title || "this topic"}, you&apos;ll need a basic understanding of React and Next.js.
               If you&apos;re new to these technologies, we recommend checking out our introductory guides first.
             </p>
 

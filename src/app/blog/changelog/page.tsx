@@ -1,11 +1,11 @@
 
 import React from "react";
-import { motion } from "framer-motion";
 import { BlogContainer } from "@/components/ui/blog/blog-container";
 import { RelatedArticles } from "@/components/ui/blog/related-articles";
 import { AceternityGlareCard } from "@/components/ui/cards/aceternity-glare-card";
 import { IconCalendar, IconTag, IconBug, IconRocket, IconTools, IconBolt } from "@tabler/icons-react";
 import { blogPosts } from "@/data/blog-posts";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
 interface ChangelogEntry {
   version: string;
@@ -111,12 +111,12 @@ export default function ChangelogBlogPage() {
       >
         <p className="lead">
           Welcome to the DZN.DEV changelog! This page documents all the updates, improvements, and fixes
-          we've made to our component library. We're constantly working to enhance the library with new
+          we&apos;ve made to our component library. We&apos;re constantly working to enhance the library with new
           components, features, and optimizations.
         </p>
 
         <div className="space-y-12 mt-8">
-          {changelog.map((release, index) => (
+          {changelog.map((release) => (
             <div key={release.version} className="space-y-4">
               <div className="flex items-center mb-4">
                 <div className="bg-blue-500/20 text-blue-500 px-4 py-2 rounded-full flex items-center">
