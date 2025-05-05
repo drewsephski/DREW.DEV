@@ -4,55 +4,26 @@ import Image from "next/image";
 import Link from "next/link";
 import BentoGridDemo from "@/components/bento-grid-demo";
 import WobbleCardDemo from "@/components/wobble-card-demo";
-import LandingNavbar from "@/components/landing-navbar";
 import TextGenerateEffectDemo from "@/components/text-generate-effect-demo";
 import FeaturedArticles from "@/components/featured-articles";
-import FloatingDockDemo from "@/components/floating-dock-demo";
 import { EnhancedTextEffect } from "@/components/ui/effects/enhanced-text-effect";
 import { AnimatedIcon } from "@/components/ui/effects/animated-icon";
 import { EnhancedCard } from "@/components/ui/cards/enhanced-card";
 // Fix GitHubButton import to use default export
 import GitHubButton from "@/components/ui/buttons/github-button";
 import Icon from "@/components/ui/icon";
-import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import { AceternityGlareCard } from "@/components/ui/cards/aceternity-glare-card";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
 export default function Home() {
   // Force client-side rendering for dark mode
   const [mounted, setMounted] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const scrollThreshold = 300; // Show floating dock after scrolling 300px
 
   useEffect(() => {
     // Set mounted state
     setMounted(true);
-
-    // Add dark class to body for dark mode
-    if (typeof document !== 'undefined') {
-      document.documentElement.classList.add('dark');
-    }
-
-    // Add scroll event listener only on client side
-    const handleScroll = () => {
-      if (typeof window !== 'undefined') {
-        const scrollPosition = window.scrollY;
-        setScrolled(scrollPosition > scrollThreshold);
-      }
-    };
-
-    // Only add event listeners on client side
-    if (typeof window !== 'undefined') {
-      // Initial check
-      handleScroll();
-
-      // Add event listener
-      window.addEventListener('scroll', handleScroll);
-
-      // Cleanup
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
   }, []);
 
   // Return a loading state or null during server-side rendering
@@ -78,34 +49,7 @@ export default function Home() {
         interactive={true}
       />
 
-      {/* Navbar - Hide when scrolled */}
-      <AnimatePresence>
-        {!scrolled && (
-          <motion.div
-            initial={{ opacity: 1, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            <LandingNavbar />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Floating Dock - Show when scrolled */}
-      <AnimatePresence>
-        {scrolled && (
-          <motion.div
-            className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.3 }}
-          >
-            <FloatingDockDemo />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Navigation is now handled by the global navigation component */}
 
       {/* Content */}
       <div className="relative z-10 grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 pt-32">

@@ -6,7 +6,6 @@ import { BackgroundGradientAnimation } from "@/components/ui/background-gradient
 import Link from "next/link";
 import { EnhancedTextEffect } from "@/components/ui/effects/enhanced-text-effect";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { FloatingDock, blogDockItems } from "@/components/ui/navigation/floating-dock";
 import Image from "next/image";
 
 export default function BlogIndexPage() {
@@ -26,7 +25,6 @@ export default function BlogIndexPage() {
         interactive={true}
       />
       <div className="z-10 w-full items-center justify-between font-mono text-sm relative">
-        <FloatingDock items={blogDockItems} />
 
         <div className="max-w-6xl mx-auto mt-16 mb-32">
           <motion.div

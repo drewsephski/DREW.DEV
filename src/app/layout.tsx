@@ -3,6 +3,7 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import SpotlightCursor from "@/components/SpotlightCursor";
+import Providers from "./providers";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -77,7 +78,19 @@ export default function RootLayout({
             smoothing: 0.1
           }}
         />
-        {children}
+        {/* Add dark class to body for dark mode */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          document.documentElement.classList.add('dark');
+        `}} />
+
+        {/* Global Navigation Component */}
+        <div id="global-navigation">
+          {/* This will be dynamically loaded on the client side */}
+        </div>
+
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

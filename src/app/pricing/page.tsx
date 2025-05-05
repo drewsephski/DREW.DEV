@@ -5,7 +5,6 @@ import { motion } from "motion/react";
 import { AceternityGlareCard } from "@/components/ui/cards/aceternity-glare-card";
 import { EnhancedTextEffect } from "@/components/ui/effects/enhanced-text-effect";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
-import LandingNavbar from "@/components/landing-navbar";
 import Link from "next/link";
 import { Accordion } from "@/components/ui/accordion";
 
@@ -33,7 +32,6 @@ export default function PricingPage() {
         interactive={true}
       />
       <div className="z-10 max-w-7xl w-full items-center justify-between font-mono text-sm relative">
-        <LandingNavbar />
 
         <div className="w-full max-w-7xl mx-auto mt-16 mb-32">
           <motion.div

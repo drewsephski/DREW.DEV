@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { EnhancedTextEffect } from "@/components/ui/effects/enhanced-text-effect";
-import LandingNavbar from "@/components/landing-navbar";
 import Link from "next/link";
 import { Button } from "@/components/ui/buttons/button";
 import GitHubButton from "@/components/ui/buttons/github-button";
@@ -625,7 +624,6 @@ export class BadgeComponent {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-4 md:p-8 lg:p-12 bg-black">
       <div className="z-10 max-w-7xl w-full items-center justify-between font-mono text-sm">
-        <LandingNavbar />
 
         <div className="w-full max-w-7xl mx-auto mt-16 mb-32">
           <motion.div
