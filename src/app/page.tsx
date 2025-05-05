@@ -313,7 +313,16 @@ export default function Home() {
           </motion.div>
 
           <p className="text-sm text-foreground/70 mb-6 max-w-2xl text-center">
-            <span className="text-blue-200 font-extrabold text-lg">DesignSystem.io</span> —
+            <span className="flex items-center justify-center gap-2 mb-2">
+              <Image
+                src="/next.svg"
+                alt="Next.js Logo"
+                width={40}
+                height={40}
+                className="dark:invert"
+              />
+              <span className="text-blue-200 font-extrabold text-lg">DZN.dev</span>
+            </span>
             <EnhancedTextEffect
               words="Build beautiful, consistent interfaces faster with our comprehensive design system tools and premium component library. Elevate your design workflow today."
               duration={0.2}

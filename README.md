@@ -1,4 +1,4 @@
-# DesignSystem.io UI Component Library
+# DZN.dev UI Component Library
 
 A modern, accessible, and customizable UI component library for React applications.
 

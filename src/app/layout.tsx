@@ -18,7 +18,7 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DesignSystem.io | Build, Manage, and Implement Design Systems",
+  title: "DZN.dev | Build, Manage, and Implement Design Systems",
   description: "Create consistent design systems at scale with our powerful platform for designers and developers.",
 };
 
