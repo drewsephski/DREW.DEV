@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Design Tokens Article</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#14B8A6" offset="0%"></stop>
+            <stop stop-color="#0D9488" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#0F172A" x="0" y="0" width="800" height="600"></rect>
+        <g transform="translate(150.000000, 150.000000)">
+            <rect fill="#14B8A6" opacity="0.1" x="0" y="0" width="500" height="300" rx="12"></rect>
+            <rect fill="#14B8A6" opacity="0.2" x="50" y="50" width="400" height="200" rx="8"></rect>
+            <rect fill="url(#linearGradient-1)" x="100" y="100" width="50" height="50" rx="4"></rect>
+            <rect fill="url(#linearGradient-1)" x="175" y="100" width="50" height="50" rx="4"></rect>
+            <rect fill="url(#linearGradient-1)" x="250" y="100" width="50" height="50" rx="4"></rect>
+            <rect fill="url(#linearGradient-1)" x="325" y="100" width="50" height="50" rx="4"></rect>
+            <rect fill="#14B8A6" opacity="0.4" x="100" y="170" width="275" height="10" rx="2"></rect>
+            <rect fill="#14B8A6" opacity="0.4" x="100" y="190" width="275" height="10" rx="2"></rect>
+            <rect fill="#14B8A6" opacity="0.4" x="100" y="210" width="200" height="10" rx="2"></rect>
+        </g>
+    </g>
+</svg>

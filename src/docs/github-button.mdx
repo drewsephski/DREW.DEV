@@ -1,0 +1,72 @@
+# GitHub Button Component
+
+The GitHub Button component is an interactive button with a dynamic gradient animation effect, designed to provide a visually engaging way to link to GitHub repositories.
+
+## Import
+
+```tsx
+import GitHubButton from "@/components/ui/buttons/github-button";
+```
+
+## Usage
+
+```tsx
+<GitHubButton />
+```
+
+## Examples
+
+### Basic Usage
+
+```tsx
+<GitHubButton />
+```
+
+### Custom Repository Link
+
+```tsx
+<GitHubButton href="https://github.com/drewsephski/" />
+```
+
+### Without Star Icon
+
+```tsx
+<GitHubButton showStar={false} />
+```
+
+### Custom Text
+
+```tsx
+<GitHubButton text="Star on GitHub" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `href` | `string` | `"https://github.com/ui-layouts/uilayouts"` | The GitHub repository URL |
+| `className` | `string` | `""` | Additional CSS classes for the container |
+| `showStar` | `boolean` | `true` | Whether to show the star icon on desktop view |
+| `text` | `string` | `"Github"` | The text to display on the button |
+
+## Features
+
+- **Interactive Gradient Animation**: The button features a dynamic gradient animation that responds to hover state
+- **Responsive Design**: Adapts to different screen sizes, showing only the GitHub icon on mobile
+- **Visual Feedback**: Changes color on hover to provide visual feedback
+- **Customizable**: Can be customized with different text and repository links
+
+## Accessibility
+
+- The button includes proper `aria-label` attributes for screen readers
+- The component uses semantic HTML elements for better accessibility
+- Visual feedback is provided on hover and focus states
+
+## Implementation Details
+
+The GitHub Button uses a complex layering of SVG gradients and CSS effects to create its distinctive appearance:
+
+1. A liquid gradient animation that responds to hover state
+2. Multiple overlapping layers with different blend modes
+3. Responsive design that adapts to different screen sizes
+4. Interactive hover effects with color changes

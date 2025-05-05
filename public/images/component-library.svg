@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Component Library</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#4F46E5" offset="0%"></stop>
+            <stop stop-color="#2563EB" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#0F172A" x="0" y="0" width="800" height="600"></rect>
+        <g transform="translate(100.000000, 100.000000)">
+            <rect stroke="#4F46E5" stroke-width="4" x="0" y="0" width="600" height="400" rx="12"></rect>
+            <rect fill="url(#linearGradient-1)" opacity="0.2" x="40" y="40" width="240" height="140" rx="8"></rect>
+            <rect fill="url(#linearGradient-1)" opacity="0.2" x="320" y="40" width="240" height="140" rx="8"></rect>
+            <rect fill="url(#linearGradient-1)" opacity="0.2" x="40" y="220" width="240" height="140" rx="8"></rect>
+            <rect fill="url(#linearGradient-1)" opacity="0.2" x="320" y="220" width="240" height="140" rx="8"></rect>
+            <circle fill="#4F46E5" cx="160" cy="110" r="40"></circle>
+            <circle fill="#2563EB" cx="440" cy="110" r="40"></circle>
+            <circle fill="#3B82F6" cx="160" cy="290" r="40"></circle>
+            <circle fill="#60A5FA" cx="440" cy="290" r="40"></circle>
+        </g>
+    </g>
+</svg>

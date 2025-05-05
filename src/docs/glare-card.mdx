@@ -1,0 +1,86 @@
+# GlareCard Component
+
+The GlareCard component is an interactive card with a dynamic glare effect that follows the user's cursor.
+
+## Import
+
+```tsx
+import { GlareCard } from "@/components/ui/cards/glare-card";
+```
+
+## Usage
+
+```tsx
+<GlareCard>
+  <h3>Card Title</h3>
+  <p>Card content goes here.</p>
+</GlareCard>
+```
+
+## Examples
+
+### Basic Usage
+
+```tsx
+<GlareCard>
+  <h3>Interactive Card</h3>
+  <p>Hover over this card to see the glare effect.</p>
+</GlareCard>
+```
+
+### Custom Glare Color
+
+```tsx
+<GlareCard glareColor="rgba(0, 255, 255, 0.4)">
+  <h3>Custom Glare Color</h3>
+  <p>This card has a cyan glare effect.</p>
+</GlareCard>
+```
+
+### Custom Border Color
+
+```tsx
+<GlareCard borderColor="rgba(255, 0, 0, 0.2)">
+  <h3>Custom Border</h3>
+  <p>This card has a red border.</p>
+</GlareCard>
+```
+
+### As Link
+
+```tsx
+<GlareCard href="/some-page" target="_blank">
+  <h3>Card Link</h3>
+  <p>Click this card to navigate.</p>
+</GlareCard>
+```
+
+### With Custom Component
+
+```tsx
+<GlareCard as={motion.div} animate={{ scale: 1 }} whileHover={{ scale: 1.05 }}>
+  <h3>Custom Component</h3>
+  <p>This card uses a custom component with additional animations.</p>
+</GlareCard>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `children` | `ReactNode` | Required | The content to display inside the card |
+| `className` | `string` | `undefined` | Additional CSS classes for the inner content |
+| `containerClassName` | `string` | `undefined` | Additional CSS classes for the container |
+| `glareColor` | `string` | `"rgba(255, 255, 255, 0.4)"` | The color of the glare effect |
+| `borderColor` | `string` | `"rgba(255, 255, 255, 0.1)"` | The color of the card border |
+| `as` | `ElementType` | `"div"` | The element type to render as |
+| `href` | `string` | `undefined` | If provided, renders as an anchor tag |
+| `target` | `string` | `undefined` | Target attribute for the anchor tag |
+| `rel` | `string` | `undefined` | Rel attribute for the anchor tag |
+| `onClick` | `() => void` | `undefined` | Click handler for the card |
+
+## Accessibility
+
+- When used as a link (`href` is provided), the component renders as an anchor tag for proper accessibility.
+- The glare effect is purely decorative and doesn't affect screen readers.
+- The component includes proper hover and focus states for keyboard navigation.

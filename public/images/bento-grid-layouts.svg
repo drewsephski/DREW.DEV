@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bento Grid Layouts</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#10B981" offset="0%"></stop>
+            <stop stop-color="#059669" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#0F172A" x="0" y="0" width="800" height="600"></rect>
+        <g transform="translate(100.000000, 100.000000)">
+            <rect fill="#10B981" opacity="0.1" x="0" y="0" width="600" height="400" rx="12"></rect>
+            <rect fill="url(#linearGradient-1)" x="50" y="50" width="150" height="150" rx="8"></rect>
+            <rect fill="url(#linearGradient-1)" x="225" y="50" width="150" height="150" rx="8"></rect>
+            <rect fill="url(#linearGradient-1)" x="400" y="50" width="150" height="150" rx="8"></rect>
+            <rect fill="url(#linearGradient-1)" x="50" y="225" width="325" height="125" rx="8"></rect>
+            <rect fill="url(#linearGradient-1)" x="400" y="225" width="150" height="125" rx="8"></rect>
+        </g>
+    </g>
+</svg>

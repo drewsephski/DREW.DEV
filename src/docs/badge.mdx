@@ -1,0 +1,79 @@
+# Badge Component
+
+The Badge component is used to highlight and categorize items, typically displaying statuses, counts, or labels.
+
+## Import
+
+```tsx
+import { Badge } from "@/components/ui/data-display/badge";
+```
+
+## Usage
+
+```tsx
+<Badge>Default Badge</Badge>
+```
+
+## Examples
+
+### Variants
+
+```tsx
+<Badge variant="primary">Primary</Badge>
+<Badge variant="secondary">Secondary</Badge>
+<Badge variant="outline">Outline</Badge>
+<Badge variant="success">Success</Badge>
+<Badge variant="warning">Warning</Badge>
+<Badge variant="danger">Danger</Badge>
+```
+
+### Sizes
+
+```tsx
+<Badge size="sm">Small</Badge>
+<Badge size="md">Medium</Badge>
+<Badge size="lg">Large</Badge>
+```
+
+### Rounded Styles
+
+```tsx
+<Badge rounded="full">Fully Rounded</Badge>
+<Badge rounded="md">Medium Rounded</Badge>
+```
+
+### With Dot
+
+```tsx
+<Badge dot>With Status Dot</Badge>
+<Badge dot dotColor="#10B981">Custom Dot Color</Badge>
+```
+
+### Glow Effect
+
+```tsx
+<Badge glow>Glowing Badge</Badge>
+```
+
+### Animated
+
+```tsx
+<Badge animated>Animated Badge</Badge>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `variant` | `"primary" \| "secondary" \| "outline" \| "success" \| "warning" \| "danger"` | `"primary"` | The visual style of the badge |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | The size of the badge |
+| `rounded` | `"full" \| "md"` | `"full"` | The border radius style |
+| `glow` | `boolean` | `false` | Whether to add a glow effect |
+| `dot` | `boolean` | `false` | Whether to show a status dot |
+| `dotColor` | `string` | `undefined` | Custom color for the status dot |
+| `animated` | `boolean` | `false` | Whether to animate the badge when it appears |
+
+## Accessibility
+
+- The Badge component uses appropriate color contrast to ensure readability.
+- When used to convey status information, consider adding appropriate ARIA attributes for screen readers.

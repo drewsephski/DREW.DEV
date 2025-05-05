@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Team Collaboration</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F59E0B" offset="0%"></stop>
+            <stop stop-color="#D97706" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#0F172A" x="0" y="0" width="800" height="600"></rect>
+        <g transform="translate(150.000000, 150.000000)">
+            <circle fill="#F59E0B" opacity="0.2" cx="250" cy="150" r="150"></circle>
+            <circle fill="url(#linearGradient-1)" cx="250" cy="150" r="30"></circle>
+            <circle fill="url(#linearGradient-1)" cx="150" cy="100" r="25"></circle>
+            <circle fill="url(#linearGradient-1)" cx="350" cy="100" r="25"></circle>
+            <circle fill="url(#linearGradient-1)" cx="150" cy="200" r="25"></circle>
+            <circle fill="url(#linearGradient-1)" cx="350" cy="200" r="25"></circle>
+            <line x1="250" y1="150" x2="150" y2="100" stroke="#F59E0B" stroke-width="3"></line>
+            <line x1="250" y1="150" x2="350" y2="100" stroke="#F59E0B" stroke-width="3"></line>
+            <line x1="250" y1="150" x2="150" y2="200" stroke="#F59E0B" stroke-width="3"></line>
+            <line x1="250" y1="150" x2="350" y2="200" stroke="#F59E0B" stroke-width="3"></line>
+            <line x1="150" y1="100" x2="350" y2="100" stroke="#F59E0B" stroke-width="3"></line>
+            <line x1="150" y1="200" x2="350" y2="200" stroke="#F59E0B" stroke-width="3"></line>
+            <line x1="150" y1="100" x2="150" y2="200" stroke="#F59E0B" stroke-width="3"></line>
+            <line x1="350" y1="100" x2="350" y2="200" stroke="#F59E0B" stroke-width="3"></line>
+        </g>
+    </g>
+</svg>

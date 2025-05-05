@@ -1,0 +1,74 @@
+# Button Component
+
+The Button component is a versatile interactive element that can be used for actions, form submissions, and navigation.
+
+## Import
+
+```tsx
+import { Button } from "@/components/ui/buttons/button";
+```
+
+## Usage
+
+```tsx
+<Button>Default Button</Button>
+```
+
+## Examples
+
+### Variants
+
+```tsx
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>
+<Button variant="destructive">Destructive</Button>
+```
+
+### Sizes
+
+```tsx
+<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>
+<Button size="icon">Icon</Button>
+```
+
+### With Icons
+
+```tsx
+<Button leftIcon={<Icon />}>Left Icon</Button>
+<Button rightIcon={<Icon />}>Right Icon</Button>
+```
+
+### Loading State
+
+```tsx
+<Button isLoading>Loading</Button>
+```
+
+### Glow Effect
+
+```tsx
+<Button glowEffect>Glow Effect</Button>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `variant` | `"primary" \| "secondary" \| "outline" \| "ghost" \| "link" \| "destructive"` | `"primary"` | The visual style of the button |
+| `size` | `"sm" \| "md" \| "lg" \| "icon"` | `"md"` | The size of the button |
+| `asChild` | `boolean` | `false` | Whether to render as a child element |
+| `isLoading` | `boolean` | `false` | Whether to show a loading spinner |
+| `leftIcon` | `ReactNode` | `undefined` | Icon to display on the left |
+| `rightIcon` | `ReactNode` | `undefined` | Icon to display on the right |
+| `glowEffect` | `boolean` | `false` | Whether to add a glow effect |
+
+## Accessibility
+
+- The Button component uses the native `<button>` element, ensuring proper keyboard navigation and screen reader support.
+- When in a loading state, the button is automatically disabled to prevent multiple submissions.
+- Focus states are clearly visible for keyboard navigation.

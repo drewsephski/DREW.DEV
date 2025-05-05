@@ -1,0 +1,117 @@
+# Text Effects Components
+
+The text effects components provide animated text reveal and generation effects to enhance user experience.
+
+## TextGenerateEffect Component
+
+The TextGenerateEffect component creates a typing animation effect where text appears to be generated character by character.
+
+### Import
+
+```tsx
+import { TextGenerateEffect } from "@/components/ui/effects/text-generate-effect";
+```
+
+### Usage
+
+```tsx
+<TextGenerateEffect words="This text will appear with a typing effect." />
+```
+
+### Examples
+
+#### Basic Usage
+
+```tsx
+<TextGenerateEffect words="Hello, world!" />
+```
+
+#### Without Blur Filter
+
+```tsx
+<TextGenerateEffect words="Text without blur effect" filter={false} />
+```
+
+#### Custom Duration
+
+```tsx
+<TextGenerateEffect words="Faster typing speed" duration={0.2} />
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `words` | `string` | Required | The text to animate |
+| `className` | `string` | `undefined` | Additional CSS classes |
+| `filter` | `boolean` | `true` | Whether to apply a blur filter effect |
+| `duration` | `number` | `0.5` | Duration of the animation in seconds |
+
+## TextReveal Component
+
+The TextReveal component reveals text with an animation when it enters the viewport.
+
+### Import
+
+```tsx
+import { TextReveal } from "@/components/ui/effects/text-reveal";
+```
+
+### Usage
+
+```tsx
+<TextReveal>This text will be revealed when it enters the viewport.</TextReveal>
+```
+
+### Examples
+
+#### Basic Usage
+
+```tsx
+<TextReveal>Hello, world!</TextReveal>
+```
+
+#### Custom Threshold
+
+```tsx
+<TextReveal threshold={0.5}>
+  This text will be revealed when 50% of it is visible.
+</TextReveal>
+```
+
+#### Custom Root Margin
+
+```tsx
+<TextReveal rootMargin="100px">
+  This text will be revealed 100px before it enters the viewport.
+</TextReveal>
+```
+
+#### Without Blur Filter
+
+```tsx
+<TextReveal filter={false}>Text without blur effect</TextReveal>
+```
+
+#### Custom Duration
+
+```tsx
+<TextReveal duration={0.2}>Faster animation</TextReveal>
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `children` | `string` | Required | The text to reveal |
+| `className` | `string` | `undefined` | Additional CSS classes |
+| `threshold` | `number` | `0.2` | Intersection observer threshold |
+| `rootMargin` | `string` | `"0px"` | Intersection observer root margin |
+| `filter` | `boolean` | `true` | Whether to apply a blur filter effect |
+| `duration` | `number` | `0.5` | Duration of the animation in seconds |
+
+## Accessibility
+
+- Both components ensure that text is still accessible to screen readers.
+- The animations are purely visual and don't affect the semantic meaning of the content.
+- The components respect user preferences for reduced motion.

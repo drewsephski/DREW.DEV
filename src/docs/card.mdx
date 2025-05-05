@@ -1,0 +1,88 @@
+# Card Component
+
+The Card component is a flexible container for grouping and displaying content in a clear and concise format.
+
+## Import
+
+```tsx
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/cards/card";
+```
+
+## Usage
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Card Description</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Card Content</p>
+  </CardContent>
+  <CardFooter>
+    <p>Card Footer</p>
+  </CardFooter>
+</Card>
+```
+
+## Examples
+
+### Variants
+
+```tsx
+<Card variant="default">Default Card</Card>
+<Card variant="bordered">Bordered Card</Card>
+<Card variant="elevated">Elevated Card</Card>
+<Card variant="glass">Glass Card</Card>
+<Card variant="gradient">Gradient Card</Card>
+```
+
+### Sizes
+
+```tsx
+<Card size="sm">Small Card</Card>
+<Card size="md">Medium Card</Card>
+<Card size="lg">Large Card</Card>
+```
+
+### Interactive Card
+
+```tsx
+<Card interactive hoverEffect="scale">
+  <CardContent>
+    <p>This card has a scale effect on hover</p>
+  </CardContent>
+</Card>
+```
+
+### Gradient Card
+
+```tsx
+<Card variant="gradient" gradientFrom="blue-500" gradientTo="purple-500">
+  <CardContent>
+    <p>This card has a custom gradient background</p>
+  </CardContent>
+</Card>
+```
+
+## Props
+
+### Card
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `variant` | `"default" \| "bordered" \| "elevated" \| "glass" \| "gradient"` | `"default"` | The visual style of the card |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | The size of the card |
+| `interactive` | `boolean` | `false` | Whether the card is interactive |
+| `gradientFrom` | `string` | `undefined` | The starting color of the gradient (for gradient variant) |
+| `gradientTo` | `string` | `undefined` | The ending color of the gradient (for gradient variant) |
+| `hoverEffect` | `"scale" \| "lift" \| "glow" \| "border" \| "none"` | `"none"` | The hover effect to apply when interactive is true |
+
+### CardHeader, CardContent, CardFooter, CardTitle, CardDescription
+
+These components accept all standard HTML div/h3/p props.
+
+## Accessibility
+
+- The Card component uses semantic HTML to ensure proper structure and accessibility.
+- When `interactive` is true, the card receives proper focus styles and keyboard interaction support.

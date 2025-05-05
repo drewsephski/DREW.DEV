@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M160 120C171.046 120 180 111.046 180 100C180 88.9543 171.046 80 160 80C158.353 80 156.745 80.2 155.212 80.5765C151.396 64.2457 136.913 52 120 52C101.775 52 86.5 65.3075 84.2 82.8C83.4686 82.7345 82.7371 82.6667 82 82.6667C68.7452 82.6667 58 93.4119 58 106.667C58 119.921 68.7452 130.667 82 130.667H160V120Z" fill="url(#paint0_linear)" stroke="#6366F1" stroke-width="2"/>
+  <path d="M100 140L100 180" stroke="#6366F1" stroke-width="2" stroke-linecap="round"/>
+  <path d="M85 165L100 180L115 165" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70 100L70 60" stroke="#6366F1" stroke-width="2" stroke-linecap="round"/>
+  <path d="M55 75L70 60L85 75" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M130 100L130 60" stroke="#6366F1" stroke-width="2" stroke-linecap="round"/>
+  <path d="M115 75L130 60L145 75" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="58" y1="52" x2="180" y2="130.667" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F46E5" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#6366F1" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+</svg>

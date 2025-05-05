@@ -1,0 +1,70 @@
+# WobbleCard Component
+
+The WobbleCard component is an interactive card with a dynamic wobble effect that responds to mouse movement.
+
+## Import
+
+```tsx
+import { WobbleCard } from "@/components/ui/cards/wobble-card";
+```
+
+## Usage
+
+```tsx
+<WobbleCard>
+  <h3>Card Title</h3>
+  <p>Card content goes here.</p>
+</WobbleCard>
+```
+
+## Examples
+
+### Basic Usage
+
+```tsx
+<WobbleCard>
+  <h3>Interactive Card</h3>
+  <p>Move your mouse over this card to see the wobble effect.</p>
+</WobbleCard>
+```
+
+### Custom Container Class
+
+```tsx
+<WobbleCard containerClassName="bg-purple-800">
+  <h3>Custom Background</h3>
+  <p>This card has a purple background.</p>
+</WobbleCard>
+```
+
+### Custom Content Class
+
+```tsx
+<WobbleCard className="text-center">
+  <h3>Centered Content</h3>
+  <p>This card has centered text content.</p>
+</WobbleCard>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `children` | `ReactNode` | Required | The content to display inside the card |
+| `containerClassName` | `string` | `undefined` | Additional CSS classes for the outer container |
+| `className` | `string` | `undefined` | Additional CSS classes for the inner content |
+
+## How It Works
+
+The WobbleCard component:
+
+1. Tracks mouse position relative to the card's center
+2. Applies a subtle 3D transform to create a wobble effect
+3. Moves the inner content in the opposite direction for a parallax effect
+4. Includes a subtle noise texture for added visual interest
+
+## Accessibility
+
+- The wobble effect is purely decorative and doesn't affect screen readers.
+- The component uses motion that respects user preferences for reduced motion.
+- The effect is subtle enough to avoid causing discomfort for most users.

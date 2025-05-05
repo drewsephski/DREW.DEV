@@ -1,0 +1,16 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="40" y="40" width="120" height="140" rx="8" fill="url(#paint0_linear)" stroke="#06B6D4" stroke-width="2"/>
+  <path d="M60 80L90 80" stroke="#06B6D4" stroke-width="2" stroke-linecap="round"/>
+  <path d="M60 100L140 100" stroke="#06B6D4" stroke-width="2" stroke-linecap="round"/>
+  <path d="M60 120L140 120" stroke="#06B6D4" stroke-width="2" stroke-linecap="round"/>
+  <path d="M60 140L110 140" stroke="#06B6D4" stroke-width="2" stroke-linecap="round"/>
+  <path d="M110 60L130 60L140 70L140 80L110 80L110 60Z" fill="#06B6D4" fill-opacity="0.2" stroke="#06B6D4" stroke-width="2"/>
+  <path d="M70 160L80 170L90 160" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M130 160L120 170L110 160" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="40" y1="40" x2="160" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0891B2" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#06B6D4" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+</svg>
