@@ -35,18 +35,32 @@ export default function RootLayout({
             (function() {
               // Run before React hydration
               if (typeof window !== 'undefined') {
-                // Remove browser extension attributes that cause hydration errors
-                document.addEventListener('DOMContentLoaded', function() {
-                  const elementsWithExtAttrs = document.querySelectorAll('[data-be-installed], [data-liner-extension-version]');
-                  elementsWithExtAttrs.forEach(el => {
-                    el.removeAttribute('data-be-installed');
-                    el.removeAttribute('data-liner-extension-version');
-                    // Remove inline styles added by extensions
-                    if (el.hasAttribute('style') && el.getAttribute('style').includes('width:100%')) {
-                      el.removeAttribute('style');
+                // Function to clean attributes - will run immediately and after DOM is loaded
+                function cleanAttributes() {
+                  // Target all elements in the document
+                  document.querySelectorAll('*').forEach(el => {
+                    // Remove specific extension attributes
+                    if (el.hasAttribute('data-be-installed')) el.removeAttribute('data-be-installed');
+                    if (el.hasAttribute('data-liner-extension-version')) el.removeAttribute('data-liner-extension-version');
+
+                    // Clean up any inline styles that might cause hydration issues
+                    if (el.hasAttribute('style')) {
+                      const style = el.getAttribute('style');
+                      if (style.includes('width:100%') || style.includes('width: 100%')) {
+                        el.removeAttribute('style');
+                      }
                     }
                   });
-                });
+                }
+
+                // Run immediately
+                cleanAttributes();
+
+                // Also run when DOM is fully loaded
+                document.addEventListener('DOMContentLoaded', cleanAttributes);
+
+                // Run again after a short delay to catch any late modifications
+                setTimeout(cleanAttributes, 100);
               }
             })();
           `}

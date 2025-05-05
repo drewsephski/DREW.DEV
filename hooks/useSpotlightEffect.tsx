@@ -64,9 +64,11 @@ const useSpotlightEffect = (config = {}) => {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.85)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      // Calculate pulse effect
+      // Calculate pulse effect - only use Date.now() on client side
+      // Use a fixed value for initial render to avoid hydration mismatch
+      const now = typeof window !== 'undefined' ? Date.now() : 0;
       const pulseScale =
-        1 + 0.1 * Math.sin((Date.now() / pulseSpeed) * Math.PI * 2)
+        1 + 0.1 * Math.sin((now / pulseSpeed) * Math.PI * 2)
       const currentSpotlightSize = spotlightSize * pulseScale
 
       // Create spotlight gradient

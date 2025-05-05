@@ -26,21 +26,40 @@ export default function Home() {
   const scrollThreshold = 300; // Show floating dock after scrolling 300px
 
   useEffect(() => {
+    // Set mounted state
     setMounted(true);
-    // Add dark class to body for dark mode
-    document.documentElement.classList.add('dark');
 
-    // Add scroll event listener
+    // Add dark class to body for dark mode
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.add('dark');
+    }
+
+    // Add scroll event listener only on client side
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setScrolled(scrollPosition > scrollThreshold);
+      if (typeof window !== 'undefined') {
+        const scrollPosition = window.scrollY;
+        setScrolled(scrollPosition > scrollThreshold);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Only add event listeners on client side
+    if (typeof window !== 'undefined') {
+      // Initial check
+      handleScroll();
+
+      // Add event listener
+      window.addEventListener('scroll', handleScroll);
+
+      // Cleanup
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
   }, []);
 
-  if (!mounted) return null;
+  // Return a loading state or null during server-side rendering
+  if (!mounted) {
+    // Return a simple placeholder that won't cause hydration issues
+    return <div className="min-h-screen bg-black"></div>;
+  }
 
   return (
     <div className="relative min-h-screen font-sans">

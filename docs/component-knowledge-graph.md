@@ -170,3 +170,45 @@ When adding a new component or modifying an existing one, please update this doc
    - Document which components it uses
 
 Remember that this document is a living knowledge graph that should evolve with the codebase.
+
+## Best Practices for Avoiding Hydration Errors
+
+When developing components, follow these best practices to avoid hydration errors:
+
+1. **Client-Side Only Components**:
+   - Use the `'use client'` directive for components that use browser APIs
+   - Implement a mounting pattern with `useState` and `useEffect` for components that should only render on the client
+   - Return `null` or a simple placeholder during server-side rendering
+
+2. **Avoid Random Values in Initial Render**:
+   - Don't use `Math.random()`, `Date.now()`, or other non-deterministic values during initial render
+   - If needed, use these values only after the component has mounted on the client
+
+3. **Conditional Rendering**:
+   - Avoid `typeof window !== 'undefined'` checks in the render function
+   - Instead, use the mounting pattern to conditionally render components
+
+4. **Browser Extensions**:
+   - Be aware that browser extensions can modify the DOM and cause hydration errors
+   - Use a cleanup script to remove extension-added attributes before hydration
+
+5. **Consistent HTML Structure**:
+   - Ensure the HTML structure is consistent between server and client
+   - Avoid dynamic class names or styles that might differ between server and client
+
+Example of the mounting pattern:
+```tsx
+const ClientComponent = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null; // or a simple placeholder
+  }
+
+  return <div>Client-side rendered content</div>;
+};
+```
